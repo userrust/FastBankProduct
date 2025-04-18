@@ -88,7 +88,7 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
             return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Только изображения разрешены")
         er = await search_user_id(int(user_id))
 
-        p = "D:/Пользователи/Андрюша/Програмирование/FastBank/FastBanck/python/home_microservice/uploads/"
+        p = "uploads/"
         res = p + f"{er[0]}"
         if er:
             os.remove(res)
