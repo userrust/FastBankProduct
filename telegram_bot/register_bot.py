@@ -14,13 +14,13 @@ headers = {
     "Content-Type":"application/json"
 }
 
-url = "http://127.0.0.1:8000/app_reg/info"
+url = "https://hellohost-8hql.onrender.com/app_reg/info"
 
 
 async def req(secrete_key_session, chat_id):
     data = {
         "secrete_key_session":f"{secrete_key_session}",
-        "chat_id": f"{chat_id}"
+        "chat_id":f"{chat_id}"
     }
     async with httpx.AsyncClient() as client:
         try:
