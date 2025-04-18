@@ -543,14 +543,14 @@
 
     // Перенаправление на главную страницу
     function redirectToHome() {
-        window.location.href = "http://192.168.1.63:8000/home";
+        window.location.href = "https://hellohost-8hql.onrender.com/home";
     }
 
     // Загрузка данных пользователя
     async function loadUserData() {
         try {
             // Загрузка курсов валют
-            const response = await fetch("http://192.168.1.63:8000/curs_usd");
+            const response = await fetch("https://hellohost-8hql.onrender.com/curs_usd");
             if (response.ok) {
                 const data = await response.json();
                 document.getElementById("usd").textContent = data.usd.rate.substring(0, 5) + " ₽";
@@ -574,7 +574,7 @@
             const avatar = document.getElementById("avatar");
             const photo = localStorage.getItem("pjoto_user");
             if (photo) {
-                avatar.innerHTML = `<img src="http://192.168.1.63:8000/uploads/${photo}" alt="Фото профиля">`;
+                avatar.innerHTML = `<img src="https://hellohost-8hql.onrender.com/uploads/${photo}" alt="Фото профиля">`;
             } else {
                 document.getElementById("avatar_name").textContent = name[0] + surname[0];
             }

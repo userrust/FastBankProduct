@@ -93,15 +93,15 @@
             font-weight: 500;
         }
         .avatar.has-photo {
-    background: none;
-}
+            background: none;
+        }
 
-.avatar.has-photo img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
+        .avatar.has-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
         .online-status {
             position: absolute;
             bottom: 0;
@@ -647,11 +647,11 @@
             .quick-actions {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .account-actions-container {
                 flex-direction: column;
             }
-            
+
             .account-action-btn {
                 width: 100%;
             }
@@ -661,27 +661,27 @@
             header {
                 padding: 12px;
             }
-            
+
             .main-content {
                 padding: 20px 12px;
             }
-            
+
             .bank-card {
                 height: 200px;
                 padding: 16px;
             }
-            
+
             .card-number {
                 font-size: 16px;
                 margin-top: 30px;
             }
         }
-        
+
         .navbar {
             display: flex;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
@@ -690,13 +690,13 @@
             color: #132bb4;
             text-decoration: none;
         }
-        
+
         .logo img {
             height: 40px;
             margin-right: -5px;
             max-width: 50px;
         }
-        
+
         .action-icon-two {
             width: 36px;
             height: 36px;
@@ -709,13 +709,13 @@
             font-size: 16px;
             color: var(--primary);
         }
-        
+
         /* Phone Input Styles */
         .phone-input-container {
             display: flex;
             align-items: center;
         }
-        
+
         .phone-prefix {
             padding: 12px 15px;
             border-right: none;
@@ -729,18 +729,18 @@
             margin-right: 10px;
             margin-bottom: 0 !important;
         }
-        
+
         .phone-input {
             border-radius: 10px 10px 10px 10px;
             margin-bottom: 0 !important;
             flex-grow: 1;
         }
-        
+
         #rf {
             height: 20px;
             width: 20px;
         }
-        
+
         /* Success Overlay */
         .success-overlay {
             position: fixed;
@@ -758,12 +758,12 @@
             visibility: hidden;
             transition: all 0.5s ease;
         }
-        
+
         .success-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .success-icon {
             width: 80px;
             height: 80px;
@@ -776,7 +776,7 @@
             position: relative;
             animation: scaleIn 0.5s ease forwards;
         }
-        
+
         .success-icon::before {
             content: '';
             width: 40px;
@@ -787,7 +787,7 @@
             position: absolute;
             top: 30px;
         }
-        
+
         .success-text {
             color: white;
             font-size: 24px;
@@ -795,7 +795,7 @@
             text-align: center;
             animation: fadeIn 0.5s ease forwards;
         }
-        
+
         .success-amount {
             color: white;
             font-size: 32px;
@@ -804,18 +804,18 @@
             animation: fadeIn 0.5s ease forwards 0.3s;
             opacity: 0;
         }
-        
+
         @keyframes scaleIn {
             0% { transform: scale(0); opacity: 0; }
             80% { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         /* Loading Animation */
         .loading-overlay {
             position: fixed;
@@ -833,12 +833,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .loading-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .loader {
             width: 50px;
             height: 50px;
@@ -848,24 +848,24 @@
             animation: spin 1s linear infinite;
             margin-bottom: 20px;
         }
-        
+
         .loading-text {
             font-size: 18px;
             color: #333;
         }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         /* Operations Modal */
         .operations-modal .modal {
             max-width: 600px;
             max-height: 80vh;
             overflow-y: auto;
         }
-        
+
         .operations-header {
             display: flex;
             justify-content: space-between;
@@ -877,13 +877,13 @@
             padding: 10px 0;
             z-index: 10;
         }
-        
+
         .operations-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .operation-item {
             padding: 15px;
             border-radius: 10px;
@@ -892,13 +892,13 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .operation-info {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .operation-icon {
             width: 36px;
             height: 36px;
@@ -910,57 +910,57 @@
             font-size: 16px;
             color: var(--primary);
         }
-        
+
         .operation-details {
             display: flex;
             flex-direction: column;
         }
-        
+
         .operation-name {
             font-weight: 500;
             font-size: 14px;
         }
-        
+
         .operation-date {
             font-size: 12px;
             color: var(--text-gray);
         }
-        
+
         .operation-amount {
             font-weight: 500;
         }
-        
+
         /* Transfer Modal Styles */
         .transfer-modal .modal {
             max-width: 450px;
         }
-        
+
         .transfer-tabs {
             display: flex;
             margin-bottom: 20px;
             border-bottom: 1px solid var(--gray);
         }
-        
+
         .transfer-tab {
             padding: 10px 20px;
             cursor: pointer;
             border-bottom: 2px solid transparent;
             font-weight: 500;
         }
-        
+
         .transfer-tab.active {
             border-bottom: 2px solid var(--primary);
             color: var(--primary);
         }
-        
+
         .transfer-content {
             display: none;
         }
-        
+
         .transfer-content.active {
             display: block;
         }
-        
+
         .form-input {
             width: 100%;
             padding: 12px 15px;
@@ -969,12 +969,12 @@
             margin-bottom: 15px;
             font-size: 14px;
         }
-        
+
         .form-input:focus {
             border-color: var(--primary);
             outline: none;
         }
-        
+
         .account-selector {
             display: flex;
             align-items: center;
@@ -985,40 +985,40 @@
             margin-bottom: 15px;
             cursor: pointer;
         }
-        
+
         .account-selector.active {
             border: 1px solid var(--primary);
             background: var(--primary-light);
         }
-        
+
         .account-selector-info {
             display: flex;
             flex-direction: column;
         }
-        
+
         .account-selector-name {
             font-weight: 500;
             font-size: 14px;
         }
-        
+
         .account-selector-balance {
             font-size: 12px;
             color: var(--text-gray);
         }
-        
+
         .account-selector-radio {
             width: 20px;
             height: 20px;
             border: 2px solid var(--gray);
             border-radius: 50%;
         }
-        
+
         .account-selector.active .account-selector-radio {
             border-color: var(--primary);
             background: var(--primary);
             position: relative;
         }
-        
+
         .account-selector.active .account-selector-radio::after {
             content: '';
             position: absolute;
@@ -1032,7 +1032,7 @@
         .rename-modal .modal {
             max-width: 400px;
         }
-        
+
         .rename-input {
             width: 100%;
             padding: 12px 15px;
@@ -1041,19 +1041,19 @@
             font-size: 16px;
             margin: 20px 0;
         }
-        
+
         .rename-input:focus {
             border-color: #4285f4;
             outline: none;
             box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
         }
-        
+
         .rename-actions {
             display: flex;
             justify-content: space-between;
             gap: 15px;
         }
-        
+
         .rename-back-btn {
             background: #f5f5f5;
             color: #3c4043;
@@ -1062,7 +1062,7 @@
             border-radius: 8px;
             cursor: pointer;
         }
-        
+
         .rename-save-btn {
             background: #4285f4;
             color: white;
@@ -1071,7 +1071,7 @@
             border-radius: 8px;
             cursor: pointer;
         }
-        
+
         /* Общие стили для модальных окон */
         .modal-overlay {
             position: fixed;
@@ -1088,12 +1088,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .modal-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .modal {
             background: white;
             border-radius: 16px;
@@ -1104,24 +1104,24 @@
             transform: translateY(20px);
             transition: all 0.3s ease;
         }
-        
+
         .modal-overlay.active .modal {
             transform: translateY(0);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-        
+
         .modal-title {
             font-size: 18px;
             font-weight: 500;
             color: #3c4043;
         }
-        
+
         .close-btn {
             background: none;
             border: none;
@@ -1146,1139 +1146,1139 @@
             background-color: rgba(255, 0, 0, 0.1) !important;
         }
         .animation-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s ease;
-}
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
 
-.animation-container.show {
-  opacity: 1;
-  visibility: visible;
-}
+        .animation-container.show {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.checkmark {
-  font-size: 60px;
-  color: #34a853;
-  margin-bottom: 15px;
-  transform: scale(0);
-  animation: checkmarkScale 0.5s ease-out forwards 0.3s;
-}
+        .checkmark {
+            font-size: 60px;
+            color: #34a853;
+            margin-bottom: 15px;
+            transform: scale(0);
+            animation: checkmarkScale 0.5s ease-out forwards 0.3s;
+        }
 
-.message {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.4s ease-out forwards 0.6s;
-}
+        .message {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.4s ease-out forwards 0.6s;
+        }
 
-.new-account-name {
-  font-size: 22px;
-  font-weight: 600;
-  color: #4285f4;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.4s ease-out forwards 0.8s;
-}
+        .new-account-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #4285f4;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.4s ease-out forwards 0.8s;
+        }
 
-@keyframes checkmarkScale {
-  0% { transform: scale(0); }
-  80% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
+        @keyframes checkmarkScale {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-@keyframes confetti {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-/* New Account Modal */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        /* New Account Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
 
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.modal {
-    background: white;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
+        .modal {
+            background: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
 
-.modal-overlay.active .modal {
-    transform: translateY(0);
-}
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-.modal-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--dark);
-}
+        .modal-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--dark);
+        }
 
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--text-gray);
-}
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-gray);
+        }
 
-.form-group {
-    margin-bottom: 16px;
-}
+        .form-group {
+            margin-bottom: 16px;
+        }
 
-.form-label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: var(--dark);
-}
+        .form-label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--dark);
+        }
 
-.form-select {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--gray);
-    background: white;
-    font-size: 14px;
-}
+        .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--gray);
+            background: white;
+            font-size: 14px;
+        }
 
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
 
-    .bank-card2 {
-        width: 100%;
-        max-width: 500px;
-        margin-left: 1%;
-        margin-right: 1%;
-        border-radius: 16px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(135deg, var(--primary), #669df6);
-        color: white;
-        box-shadow: 0 10px 20px rgba(66, 133, 244, 0.2);
-        margin-top: 10px;
-        height: 200px;
-    }
-    .account-actions-container {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 10px;
-                        align-items: center;
-                    }
-                    
-                    .top-actions, .bottom-actions {
-                        display: flex;
-                        gap: 10px;
-                        justify-content: center;
-                        width: 100%;
-                    }
-                    
-                    .account-action-btn {
-                        padding: 8px 15px;
-                        border-radius: 8px;
-                        border: none;
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                        font-weight: 500;
-                        transition: all 0.2s ease;
-                    }
-                    
-                    .rename-btn {
-                        background-color: #e3f2fd;
-                        color: #1976d2;
-                    }
-                    
-                    .delete-btn {
-                        background-color: #ffebee;
-                        color: #d32f2f;
-                    }
-                    
-                    .account-action-btn:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                       }
-                    
-                    .action-btn2 {
-                        border-radius: 12px;
-                        padding: 15px 20px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 8px;
-                        transition: all 0.2s ease;
-                        cursor: pointer;
-                        width: fit-content;
-                    }
-                
-                    .action-btn2:hover {
-                        transform: translateY(-3px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                        border-color: var(--primary-light);
-                    }
-                    
-                    .action-icon {
-                        font-size: 18px;
-                        font-weight: bold;
-                    }
-                    
-                    .action-text {
-                        font-size: 14px;
-                    }
-                    .logo{
-                        margin-right: 10px;
-                    }
+        .bank-card2 {
+            width: 100%;
+            max-width: 500px;
+            margin-left: 1%;
+            margin-right: 1%;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), #669df6);
+            color: white;
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.2);
+            margin-top: 10px;
+            height: 200px;
+        }
+        .account-actions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .top-actions, .bottom-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .account-action-btn {
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .rename-btn {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .delete-btn {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+
+        .account-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .action-btn2 {
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .action-btn2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .action-icon {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .action-text {
+            font-size: 14px;
+        }
+        .logo{
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body onload="loadUserData()">
-     <!-- Модальное окно переименования счета -->
-    <header>
-        <div class="navbar">
-            <a href="#" class="logo">
-                <img src="https://avatars.mds.yandex.net/i?id=0ef6a458b81d8d25ad5bb535ae554682_l-5261679-images-thumbs&n=13" alt="Логотип">
-                FastBank
-            </a>
+<!-- Модальное окно переименования счета -->
+<header>
+    <div class="navbar">
+        <a href="#" class="logo">
+            <img src="https://avatars.mds.yandex.net/i?id=0ef6a458b81d8d25ad5bb535ae554682_l-5261679-images-thumbs&n=13" alt="Логотип">
+            FastBank
+        </a>
+    </div>
+    <div class="user-info" id="user_info">
+        <div class="avatar" id="avatar">
+            <div class="avatar-initials" id="avatar_name">ИИ</div>
+            <div class="online-status"></div>
         </div>
-        <div class="user-info" id="user_info">
-            <div class="avatar" id="avatar">
-                <div class="avatar-initials" id="avatar_name">ИИ</div>
-                <div class="online-status"></div>
-            </div>
-            <div class="user-name">
-                <div class="welcome">Добро пожаловать</div>
-                <div class="name" id="name"></div>
-            </div>
+        <div class="user-name">
+            <div class="welcome">Добро пожаловать</div>
+            <div class="name" id="name"></div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main class="main-content">
-        <section class="cards-section">
-            <h2 class="section-title">Ваша карта</h2>
-            <div class="bank-card">
-                <div class="card-logo">Clear Premium</div>
-                <div class="card-chip"></div><br>
-                <div class="card-number" id="info_cart"></div>
-                <div class="card-footer">
-                    <div class="card-holder" id="name_card_holder"></div>
-                    <div class="card-expiry">09/35</div>
-                </div>
-                <div class="card-balance" id="card-balance">₽</div>
+<main class="main-content">
+    <section class="cards-section">
+        <h2 class="section-title">Ваша карта</h2>
+        <div class="bank-card">
+            <div class="card-logo">Clear Premium</div>
+            <div class="card-chip"></div><br>
+            <div class="card-number" id="info_cart"></div>
+            <div class="card-footer">
+                <div class="card-holder" id="name_card_holder"></div>
+                <div class="card-expiry">09/35</div>
             </div>
-        </section>
+            <div class="card-balance" id="card-balance">₽</div>
+        </div>
+    </section>
 
-        <section class="accounts-section">
-            <div class="section-header">
-                <h2 class="section-title">Ваши счета</h2>
-                <button class="btn btn-outline" id="newAccountBtn">
-                    <span>+</span> Новый счет
-                </button>
-            </div>
-            
-            <div class="account-item" id="osnov_chet" onclick="openAccountModal('Основной рублевый', '', 'Текущий (рублевый)', '')">
-                <div class="account-info">
-                    <div class="account-name">Основной рублевый</div>
-                    <div class="account-number" id="info_cart_two"></div>
-                </div>
-                <div class="account-balance" id="cart_debetov_balance"></div>
-            </div>
+    <section class="accounts-section">
+        <div class="section-header">
+            <h2 class="section-title">Ваши счета</h2>
+            <button class="btn btn-outline" id="newAccountBtn">
+                <span>+</span> Новый счет
+            </button>
+        </div>
 
-            <div id="new_chet">
+        <div class="account-item" id="osnov_chet" onclick="openAccountModal('Основной рублевый', '', 'Текущий (рублевый)', '')">
+            <div class="account-info">
+                <div class="account-name">Основной рублевый</div>
+                <div class="account-number" id="info_cart_two"></div>
             </div>
-            <div id="new_chet_two"></div>
-        </section>
+            <div class="account-balance" id="cart_debetov_balance"></div>
+        </div>
 
-        <section>
-            <div class="quick-actions">
-                <div class="action-btn" onclick=href("http://192.168.1.63:8000/chat")>
-                    <div class="action-icon">💬</div>
+        <div id="new_chet">
+        </div>
+        <div id="new_chet_two"></div>
+    </section>
+
+    <section>
+        <div class="quick-actions">
+            <div class="action-btn" onclick=href("https://hellohost-8hql.onrender.com/chat")>
+                <div class="action-icon">💬</div>
                 <div class="action-text">Чат</div>
             </div>
 
-            <div class="action-btn" onclick="href('http://192.168.1.63:8000/eshe')" >
+            <div class="action-btn" onclick="href('https://hellohost-8hql.onrender.com/eshe')" >
                 <div class="action-icon">✴</div>
                 <div class="action-text">Еще</div>
             </div>
-                <script>
-                    function href(url){
-                        window.location.href = url
-                    }
-                </script>
-        </section>
+            <script>
+                function href(url){
+                    window.location.href = url
+                }
+            </script>
+    </section>
 
 
-        <section>
-            <h2 class="section-title">Быстрые действия</h2><br>
-            <div class="quick-actions">
-                <div class="action-btn" id="transferBtn">
-                    <div class="action-icon">→</div>
-                    <div class="action-text">Перевод</div>
-                </div>
-                <div class="action-btn" id="plus_chet" onclick="plus()">
-                    <div class="action-icon">+</div>
-                    <div class="action-text">Пополнить</div>
-                </div>
-                <script>
- 
-                </script>
-                <div class="action-btn" id="open_chet_transl">
-                    <div class="action-icon">⇄</div>
-                    <div class="action-text">Между счетами</div>
-                </div>
-                <div class="action-btn" id="money_plata">
-                    <div class="action-icon">⚡</div>
-                    <div class="action-text">Оплата</div>
-                </div>
+    <section>
+        <h2 class="section-title">Быстрые действия</h2><br>
+        <div class="quick-actions">
+            <div class="action-btn" id="transferBtn">
+                <div class="action-icon">→</div>
+                <div class="action-text">Перевод</div>
             </div>
-        </section>
+            <div class="action-btn" id="plus_chet" onclick="plus()">
+                <div class="action-icon">+</div>
+                <div class="action-text">Пополнить</div>
+            </div>
+            <script>
 
-        <section class="transactions-section">
-            <div class="transactions-header">
-                <h2 class="section-title">Последние операции</h2>
-                <div class="view-all" onclick="len_oper()">
-                    <p>Все операции</p>
-                    <span id="len_oper_text">→</span>
-                </div>
+            </script>
+            <div class="action-btn" id="open_chet_transl">
+                <div class="action-icon">⇄</div>
+                <div class="action-text">Между счетами</div>
             </div>
-            <div id="new_operation" class="new_operation">
+            <div class="action-btn" id="money_plata">
+                <div class="action-icon">⚡</div>
+                <div class="action-text">Оплата</div>
             </div>
-        </section>
-    </main>
-    
-    <div class="modal-overlay" id="accountInfoModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Информация о счете</h3>
-                <button class="close-btn" id="closeAccountModalBtn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="account-info-section">
-                    <div class="account-info-row">
-                        <span class="account-info-label">Название счета:</span>
-                        <span class="account-info-value" id="accountNameDisplay">Основной</span>
-                    </div>
-                    <div class="account-info-row">
-                        <span class="account-info-label">Номер счета:</span>
-                        <span class="account-info-value" id="accountNumberDisplay">•••• 5678</span>
-                    </div>
-                    <div class="account-info-row">
-                        <span class="account-info-label">Тип счета:</span>
-                        <span class="account-info-value" id="accountTypeDisplay">Текущий (рублевый)</span>
-                    </div>
-                </div>
-                
-                <div class="account-balance-display" id="accountBalanceDisplay">25 000 ₽</div>
-                
-                <div class="account-actions-container" id="no">
-                    <div class="top-actions">
-                        <button class="account-action-btn rename-btn" id="renameAccountBtn" onclick="name_chet()">
-                            <span>✏️</span> Переименовать
-                        </button>
-                        
-                        <button class="account-action-btn delete-btn" id="deleteAccountBtn" onclick="delete_chet_name()">
-                            <span>🗑️</span> Удалить
-                        </button>
-                    </div>
-                    
-                    <div class="bottom-actions" id="act">
-                        <div class="action-btn2" id="plus_chet" onclick="open_plus_chet()">
-                            <div class="action-icon">+</div>
-                            <div class="action-text">Пополнить</div>
-                        </div>
-                        
-                        <div class="action-btn2" id="minus_chet" onclick="open_minus_chet()">
-                            <div class="action-icon">-</div>
-                            <div class="action-text">Перевести</div>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    function open_plus_chet(){
-                        document.getElementById('accountInfoModal').classList.remove('active');
-                        document.getElementById('betweenAccountsModal').classList.add('active');     
-                    }
+        </div>
+    </section>
 
-                    function open_minus_chet(){
-                        document.getElementById('accountInfoModal').classList.remove('active');
-                        document.getElementById('betweenAccountsModal').classList.add('active'); 
-                    }
-                </script>
+    <section class="transactions-section">
+        <div class="transactions-header">
+            <h2 class="section-title">Последние операции</h2>
+            <div class="view-all" onclick="len_oper()">
+                <p>Все операции</p>
+                <span id="len_oper_text">→</span>
+            </div>
+        </div>
+        <div id="new_operation" class="new_operation">
+        </div>
+    </section>
+</main>
+
+<div class="modal-overlay" id="accountInfoModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Информация о счете</h3>
+            <button class="close-btn" id="closeAccountModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="account-info-section">
+                <div class="account-info-row">
+                    <span class="account-info-label">Название счета:</span>
+                    <span class="account-info-value" id="accountNameDisplay">Основной</span>
+                </div>
+                <div class="account-info-row">
+                    <span class="account-info-label">Номер счета:</span>
+                    <span class="account-info-value" id="accountNumberDisplay">•••• 5678</span>
+                </div>
+                <div class="account-info-row">
+                    <span class="account-info-label">Тип счета:</span>
+                    <span class="account-info-value" id="accountTypeDisplay">Текущий (рублевый)</span>
+                </div>
+            </div>
+
+            <div class="account-balance-display" id="accountBalanceDisplay">25 000 ₽</div>
+
+            <div class="account-actions-container" id="no">
+                <div class="top-actions">
+                    <button class="account-action-btn rename-btn" id="renameAccountBtn" onclick="name_chet()">
+                        <span>✏️</span> Переименовать
+                    </button>
+
+                    <button class="account-action-btn delete-btn" id="deleteAccountBtn" onclick="delete_chet_name()">
+                        <span>🗑️</span> Удалить
+                    </button>
+                </div>
+
+                <div class="bottom-actions" id="act">
+                    <div class="action-btn2" id="plus_chet" onclick="open_plus_chet()">
+                        <div class="action-icon">+</div>
+                        <div class="action-text">Пополнить</div>
+                    </div>
+
+                    <div class="action-btn2" id="minus_chet" onclick="open_minus_chet()">
+                        <div class="action-icon">-</div>
+                        <div class="action-text">Перевести</div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function open_plus_chet(){
+                    document.getElementById('accountInfoModal').classList.remove('active');
+                    document.getElementById('betweenAccountsModal').classList.add('active');
+                }
+
+                function open_minus_chet(){
+                    document.getElementById('accountInfoModal').classList.remove('active');
+                    document.getElementById('betweenAccountsModal').classList.add('active');
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно переименования счета -->
+<div class="modal-overlay" id="renameAccountModal">
+    <div class="modal rename-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Переименовать счет</h3>
+            <button class="close-btn" id="closeRenameModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="rename-input" id="newAccountNameInput" placeholder="Введите новое название">
+            <div class="rename-actions">
+                <button class="rename-back-btn" id="backRenameBtn">Назад</button>
+                <button class="rename-save-btn" id="saveRenameBtn" onclick="rename_name_chet()">Сохранить</button>
             </div>
         </div>
     </div>
-    
-    <!-- Модальное окно переименования счета -->
-    <div class="modal-overlay" id="renameAccountModal">
-        <div class="modal rename-modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Переименовать счет</h3>
-                <button class="close-btn" id="closeRenameModalBtn">&times;</button>
+</div>
+
+
+<div class="modal-overlay" id="newAccountModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Открыть новый счет</h3>
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Тип счета</label>
+                <select class="form-select">
+                    <option>Текущий (рублевый)</option>
+                    <!--<option>Накопительный</option>
+                    <option>Валютный (USD)</option>
+                    <option>Валютный (EUR)</option>-->
+                </select>
             </div>
-            <div class="modal-body">
-                <input type="text" class="rename-input" id="newAccountNameInput" placeholder="Введите новое название">
-                <div class="rename-actions">
-                    <button class="rename-back-btn" id="backRenameBtn">Назад</button>
-                    <button class="rename-save-btn" id="saveRenameBtn" onclick="rename_name_chet()">Сохранить</button>
-                </div>
+            <div class="form-group">
+                <label class="form-label">Название счета</label>
+                <input type="text" class="form-select" id="name_chet" placeholder="Например: Основной">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" id="cancelBtn">Отмена</button>
+            <button class="btn" id="createAccountBtn">Создать счет</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно подтверждения удаления -->
+<div class="modal-overlay" id="deleteConfirmationModal">
+    <div class="modal confirmation-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Подтверждение удаления</h3>
+            <button class="close-btn" id="closeDeleteModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="confirmation-icon">⚠️</div>
+            <p class="confirmation-text">Вы уверены, что хотите удалить этот счет? Все средства будут переведены на ваш основной счет.</p>
+
+            <div class="confirmation-actions">
+                <button class="account-action-btn cancel-btn" id="cancelDeleteBtn">Отмена</button>
+                <button class="account-action-btn confirm-btn" id="confirmDeleteBtn" onclick="delete_chet()">Удалить</button>
             </div>
         </div>
     </div>
-    
+</div>
 
-    <div class="modal-overlay" id="newAccountModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Открыть новый счет</h3>
-                <button class="close-btn" id="closeModalBtn">&times;</button>
+<!-- Модальное окно перевода -->
+<div class="modal-overlay" id="transferModal">
+    <div class="modal transfer-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Перевод средств</h3>
+            <button class="close-btn" id="closeTransferModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="transfer-tabs">
+                <div class="transfer-tab active" data-tab="phone">По номеру телефона</div>
+                <div class="transfer-tab" data-tab="account">По номеру счета</div>
             </div>
-            <div class="modal-body">
+
+            <!-- Перевод по номеру телефона -->
+            <div class="transfer-content active" id="phone-transfer">
                 <div class="form-group">
-                    <label class="form-label">Тип счета</label>
-                    <select class="form-select">
-                        <option>Текущий (рублевый)</option>
-                        <!--<option>Накопительный</option>
-                        <option>Валютный (USD)</option>
-                        <option>Валютный (EUR)</option>-->
-                    </select>
+                    <h2>Кому перевести</h2><br>
+                    <div class="phone-input-container">
+                        <div class="phone-prefix">
+                            <img id="rf" src="https://cdn-icons-png.freepik.com/256/16025/16025265.png?semt=ais_hybrid" alt="">
+                            +7
+                        </div>
+                        <input type="tel" class="form-input phone-input" placeholder="Номер телефона получателя" id="phone_transl_phone">
+                    </div><br>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Название счета</label>
-                    <input type="text" class="form-select" id="name_chet" placeholder="Например: Основной">
+                    <input type="number" class="form-input" placeholder="Сумма перевода" id="summa_transl_phone">
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" id="cancelBtn">Отмена</button>
-                <button class="btn" id="createAccountBtn">Создать счет</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно подтверждения удаления -->
-    <div class="modal-overlay" id="deleteConfirmationModal">
-        <div class="modal confirmation-modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Подтверждение удаления</h3>
-                <button class="close-btn" id="closeDeleteModalBtn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="confirmation-icon">⚠️</div>
-                <p class="confirmation-text">Вы уверены, что хотите удалить этот счет? Все средства будут переведены на ваш основной счет.</p>
-                
-                <div class="confirmation-actions">
-                    <button class="account-action-btn cancel-btn" id="cancelDeleteBtn">Отмена</button>
-                    <button class="account-action-btn confirm-btn" id="confirmDeleteBtn" onclick="delete_chet()">Удалить</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Модальное окно перевода -->
-    <div class="modal-overlay" id="transferModal">
-        <div class="modal transfer-modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Перевод средств</h3>
-                <button class="close-btn" id="closeTransferModalBtn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="transfer-tabs">
-                    <div class="transfer-tab active" data-tab="phone">По номеру телефона</div>
-                    <div class="transfer-tab" data-tab="account">По номеру счета</div>
-                </div>
-                 
-                <!-- Перевод по номеру телефона -->
-                <div class="transfer-content active" id="phone-transfer">
-                    <div class="form-group">
-                        <h2>Кому перевести</h2><br>
-                        <div class="phone-input-container">
-                            <div class="phone-prefix">
-                                <img id="rf" src="https://cdn-icons-png.freepik.com/256/16025/16025265.png?semt=ais_hybrid" alt="">
-                                +7
-                            </div>
-                            <input type="tel" class="form-input phone-input" placeholder="Номер телефона получателя" id="phone_transl_phone">
-                        </div><br>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-input" placeholder="Сумма перевода" id="summa_transl_phone">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Коментарий к переводу (необязательно)" id="coment_transl_phone">
-                    </div>
-                    
-                    <div class="account-selector active" data-account="main">
-                        <div class="account-selector-info">
-                            <div class="account-selector-name">Основной счет</div>
-                            <div class="account-selector-balance" id="mainAccountBalance"></div>
-                        </div>
-                        <div class="account-selector-radio"></div>
-                    </div>
-                    
-                    <button onclick="send()" id="btn_n" class="btn" style="width: 100%; margin-top: 20px; display: flex; justify-content: center;">
-                        <span id="per" style="margin: 0; width: 100%; text-align: center;">Перевести</span>
-                    </button><br>
-                    <div id="error_transl_phone" style="text-align: center;"></div>
-                </div>
-                
-
-                <!-- Перевод по карте-->
-                <div class="transfer-content" id="account-transfer">
-                    <div class="form-group">
-                        <h2>Кому перевести</h2><br>
-                        <div class="phone-input-container">
-                            <input type="tel" class="form-input phone-input" placeholder="Номер счета получателя" id="chet_transl_chet">
-                        </div><br>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-input" placeholder="Сумма перевода" id="summa_transl_chet">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" placeholder="Коментарий к переводу (необязательно)" id="coment_transl_chet">
-                    </div>
-                    
-                    <div class="account-selector active" data-account="main">
-                        <div class="account-selector-info">
-                            <div class="account-selector-name">Основной счет</div>
-                            <div class="account-selector-balance" id="mainAccountBalance_two"></div>
-                        </div>
-                        <div class="account-selector-radio"></div>
-                    </div>
-                    
-                    <button onclick="translations_user_card()" id="btn_n" class="btn" style="width: 100%; margin-top: 20px; display: flex; justify-content: center;">
-                        <span id="per" style="margin: 0; width: 100%; text-align: center;">Перевести</span>
-                    </button><br>
-                    <div id="error_transl_card" style="text-align: center;"></div>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Коментарий к переводу (необязательно)" id="coment_transl_phone">
                 </div>
 
-                <script>
-                    async function translations_user_card() {
-                        const number_chet = document.getElementById("chet_transl_chet").value;
-                        const summa_translations = document.getElementById("summa_transl_chet").value;
-                        const comment = document.getElementById("coment_transl_chet").value;
+                <div class="account-selector active" data-account="main">
+                    <div class="account-selector-info">
+                        <div class="account-selector-name">Основной счет</div>
+                        <div class="account-selector-balance" id="mainAccountBalance"></div>
+                    </div>
+                    <div class="account-selector-radio"></div>
+                </div>
 
-                        const user_id = localStorage.getItem("user_id");
+                <button onclick="send()" id="btn_n" class="btn" style="width: 100%; margin-top: 20px; display: flex; justify-content: center;">
+                    <span id="per" style="margin: 0; width: 100%; text-align: center;">Перевести</span>
+                </button><br>
+                <div id="error_transl_phone" style="text-align: center;"></div>
+            </div>
 
-                        const response = await fetch("http://192.168.1.63:8000/translations_card/translations_card", {
-                            method: "POST",
-                            headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                            body: JSON.stringify({
-                                user_id: user_id,
-                                data_card: number_chet,
-                                money: summa_translations,
-                                comment: comment
-                            })
+
+            <!-- Перевод по карте-->
+            <div class="transfer-content" id="account-transfer">
+                <div class="form-group">
+                    <h2>Кому перевести</h2><br>
+                    <div class="phone-input-container">
+                        <input type="tel" class="form-input phone-input" placeholder="Номер счета получателя" id="chet_transl_chet">
+                    </div><br>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-input" placeholder="Сумма перевода" id="summa_transl_chet">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Коментарий к переводу (необязательно)" id="coment_transl_chet">
+                </div>
+
+                <div class="account-selector active" data-account="main">
+                    <div class="account-selector-info">
+                        <div class="account-selector-name">Основной счет</div>
+                        <div class="account-selector-balance" id="mainAccountBalance_two"></div>
+                    </div>
+                    <div class="account-selector-radio"></div>
+                </div>
+
+                <button onclick="translations_user_card()" id="btn_n" class="btn" style="width: 100%; margin-top: 20px; display: flex; justify-content: center;">
+                    <span id="per" style="margin: 0; width: 100%; text-align: center;">Перевести</span>
+                </button><br>
+                <div id="error_transl_card" style="text-align: center;"></div>
+            </div>
+
+            <script>
+                async function translations_user_card() {
+                    const number_chet = document.getElementById("chet_transl_chet").value;
+                    const summa_translations = document.getElementById("summa_transl_chet").value;
+                    const comment = document.getElementById("coment_transl_chet").value;
+
+                    const user_id = localStorage.getItem("user_id");
+
+                    const response = await fetch("https://hellohost-8hql.onrender.com/translations_card/translations_card", {
+                        method: "POST",
+                        headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                        body: JSON.stringify({
+                            user_id: user_id,
+                            data_card: number_chet,
+                            money: summa_translations,
+                            comment: comment
                         })
-
-                        if(response.ok){
-                            const loadingOverlay = document.getElementById('loadingOverlay');
-                            loadingOverlay.classList.add('active');
-
-                            // Имитация задержки
-                            await new Promise(resolve => setTimeout(resolve, 1500));
-
-                            // Имитация успешного ответа
-                            loadingOverlay.classList.remove('active');
-                            document.getElementById('successAmount').textContent = `-${summa_translations} ₽`; // Исправил amount на summa
-
-                            const successOverlay = document.getElementById('successOverlay');
-                            successOverlay.classList.add('active');
-
-                            setTimeout(() => {
-                                successOverlay.classList.remove('active');
-                                document.getElementById('transferModal').classList.remove('active');
-                                loadUserData(); // Обновляем данные
-                            }, 2000); 
-                        }
-                        else{
-                            const data = await response.json()
-                            document.getElementById("error_transl_card").textContent = data.detail;
-                        }
-                        
-                    }
-                </script>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="betweenAccountsModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Перевод между счетами</h3>
-                <button class="close-btn" id="dddd">&times;</button>
-            </div>
-            <div class="modal-body">
-
-                <div class="form-group">
-
-                    <label class="form-label">Списать со счета</label>
-                    <select class="form-select" id="fromAccount">
-                        <option value="main" selected disabled>Выберите счет</option>
-                    </select>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label class="form-label">Зачислить на счет</label>
-                    <select class="form-select" id="toAccount">
-                        <option value="main" selected disabled>Выберите счет</option>
-                    </select>
-
-                </div>
-                    
-
-                <div class="form-group">
-                    <label class="form-label">Сумма перевода</label>
-                    <input type="number" class="form-select" placeholder="Введите сумму" id="transferAmountBetween">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline" id="cancelBetweenTransfer" >Отмена</button>
-                <button class="btn" id="confirmBetweenTransfer" onclick="translate_money_chet()" >Перевести</button>
-            </div>
-            <style>
-                #error_chet{
-                    text-align: center;
-                    margin-top: 10px;
-                    font-size: 19px;
-                }
-            </style>
-            <div id="error_chet"></div>
-
-        </div>
-
-        <div class="animation-container" id="new_chetAnimation">
-            <div class="checkmark">✓</div>
-            <div class="message">Перевод выполнен</div>
-            <div class="new-account-name" id="animatedAccountName123"></div>
-        </div>
-    
-
-        <script>
-            
-        function Animation(money) {
-                const animation = document.getElementById('new_chetAnimation');
-                const nameElement = document.getElementById("animatedAccountName123");
-                // Устанавливаем новое имя
-                nameElement.textContent = money + "₽";
-        
-                // Показываем анимацию
-                animation.classList.add('show');
-        
-                // Добавляем конфетти (опционально)
-                createConfetti();
-        
-                // Автоматическое скрытие через 3 секунды
-                setTimeout(() => {
-                  animation.classList.remove('show');
-          }, 3000);
-        }
-
-            async function translate_money_chet(){
-                const name_chet_one = document.getElementById("fromAccount").value;
-                const name_chet_two = document.getElementById("toAccount").value;
-                const money = document.getElementById("transferAmountBetween").value;
-                const user_id = localStorage.getItem("user_id")
-                
-                const money_user = document.getElementById("card-balance").textContent;
-                console.log(money_user)
-                console.log(user_id)
-
-                if(name_chet_one == name_chet_two){
-                    alert("Счета должны различатся")
-                    return;
-                }
-
-                const response = await fetch("http://192.168.1.63:8000/app/translations_chet", {
-                    method: "POST",
-                    headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        user_id: String(user_id),
-                        name_chet_one: String(name_chet_one),
-                        name_chet_two: String(name_chet_two),
-                        money: String(money)
                     })
-                })
-                if(response.ok){
-                    Animation(money)
-                    loadUserData()
-                
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    document.getElementById('betweenAccountsModal').classList.remove('active');
-                    
+
+                    if(response.ok){
+                        const loadingOverlay = document.getElementById('loadingOverlay');
+                        loadingOverlay.classList.add('active');
+
+                        // Имитация задержки
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+
+                        // Имитация успешного ответа
+                        loadingOverlay.classList.remove('active');
+                        document.getElementById('successAmount').textContent = `-${summa_translations} ₽`; // Исправил amount на summa
+
+                        const successOverlay = document.getElementById('successOverlay');
+                        successOverlay.classList.add('active');
+
+                        setTimeout(() => {
+                            successOverlay.classList.remove('active');
+                            document.getElementById('transferModal').classList.remove('active');
+                            loadUserData(); // Обновляем данные
+                        }, 2000);
+                    }
+                    else{
+                        const data = await response.json()
+                        document.getElementById("error_transl_card").textContent = data.detail;
+                    }
+
                 }
-                else{
-                    const data = await response.json()
-                    const f = data.detail
-                    document.getElementById("error_chet").textContent = f.slice(9, f.length);
-                }
-
-
-            }
-            function loadAccounts() {
-                const defaultAccount = "Главный щет";
-                const chet_two = localStorage.getItem("chet_two");
-                const chet_three = localStorage.getItem("chet_three");
-        
-                // Формируем HTML для списка счетов
-                let accountsHTML = `<option value="${defaultAccount}">${defaultAccount}</option>`;
-        
-                // Добавляем второй счет, если он есть
-                if (chet_two && chet_two !== "not") {
-                    accountsHTML += `<option value="${chet_two}">${chet_two}</option>`;
-                }
-        
-                // Добавляем третий счет, если он есть
-                if (chet_three && chet_three !== "not") {
-                    accountsHTML += `<option value="${chet_three}">${chet_three}</option>`;
-                }
-        
-                // Вставляем счета в оба <select>
-                document.getElementById("fromAccount").innerHTML += accountsHTML;
-                document.getElementById("toAccount").innerHTML += accountsHTML;
-            }
-        
-            // Загружаем счета сразу при открытии страницы
-            window.addEventListener('DOMContentLoaded', loadAccounts);
-        </script>
-    </div>
-
-    <div class="modal-overlay" id="PlusChrtModla">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Пополнение счета</h3>
-                <button class="close-btn" id="closeMpdalKres">&times;</button>
-            </div>
-            <div class="modal-body">
-
-                <div class="bank-card2">
-                    <div class="card-logo">Clear Premium</div>
-                    <div class="card-chip"></div><br>
-                    <div class="card-number" id="info_cart2"></div>
-                    <div class="card-footer">
-                        <div class="card-holder" id="name_card_holder12"></div>
-                        <div class="card-expiry">09/35</div>
-                </div>
-                    <div class="card-balance" id="card-balance2"></div>
-                </div>
-            </div><br>
-            <div class="buttransl" style="display: flex; justify-content: space-between; gap: 10%;">
-                <button onclick="sebe()" id="btn_n" class="btn btn-outline" style="width: 60%; margin-top: 10px; display: flex; justify-content: center;">
-                    <span id="per" style="margin: 0; width: 70%; text-align: center;">Перевести себе</span>
-                </button>
-            
-                <button onclick="nosebe()" id="btn_n" class="btn btn-outline" style="width: 60%; margin-top: 10px; display: flex; justify-content: center;">
-                    <span id="per" style="margin: 0; width: 70%; text-align: center;">Перевести другому</span>
-                </button>
-            </div>
-        </div>
-
-        <script>
-
-            function plus(){
-                const name = document.getElementById("name").textContent;
-                const money = document.getElementById("card-balance").textContent;
-                const number = document.getElementById("info_cart").textContent;
-
-                console.log(name)
-                document.getElementById("name_card_holder12").innerHTML = name
-                document.getElementById("card-balance2").innerHTML = money 
-                document.getElementById("info_cart2").innerHTML = number 
-
-            }
-
-            function sebe(){
-                document.getElementById('PlusChrtModla').classList.remove('active');
-                document.getElementById('betweenAccountsModal').classList.add('active');            
-            }
-
-            function nosebe(){
-                document.getElementById('PlusChrtModla').classList.remove('active');
-                document.getElementById('transferModal').classList.add('active'); 
-            }
-
-        </script>
-
-        <div class="animation-container" id="new_chetAnimation">
-            <div class="checkmark">✓</div>
-            <div class="message">Перевод выполнен</div>
-            <div class="new-account-name" id="animatedAccountName123"></div>
+            </script>
         </div>
     </div>
+</div>
 
+<div class="modal-overlay" id="betweenAccountsModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Перевод между счетами</h3>
+            <button class="close-btn" id="dddd">&times;</button>
+        </div>
+        <div class="modal-body">
 
+            <div class="form-group">
 
+                <label class="form-label">Списать со счета</label>
+                <select class="form-select" id="fromAccount">
+                    <option value="main" selected disabled>Выберите счет</option>
+                </select>
 
-    <!-- Модальное окно всех операций -->
-    <div class="modal-overlay" id="allOperationsModal">
-        <div class="modal operations-modal">
-            <div class="operations-header">
-                <h3 class="modal-title">Все операции</h3>
-                <button class="close-btn" id="closeOperationsModalBtn">&times;</button>
             </div>
-            <div class="operations-list" id="allOperationsList">
-                <!-- Операции будут добавлены здесь динамически -->
+
+            <div class="form-group">
+
+                <label class="form-label">Зачислить на счет</label>
+                <select class="form-select" id="toAccount">
+                    <option value="main" selected disabled>Выберите счет</option>
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label">Сумма перевода</label>
+                <input type="number" class="form-select" placeholder="Введите сумму" id="transferAmountBetween">
             </div>
         </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" id="cancelBetweenTransfer" >Отмена</button>
+            <button class="btn" id="confirmBetweenTransfer" onclick="translate_money_chet()" >Перевести</button>
+        </div>
+        <style>
+            #error_chet{
+                text-align: center;
+                margin-top: 10px;
+                font-size: 19px;
+            }
+        </style>
+        <div id="error_chet"></div>
+
     </div>
 
-
-    <!-- Модальное окно пополнения -->
-
-
-    <!-- Оверлеи для анимаций -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loader"></div>
-        <div class="loading-text">Выполняется перевод...</div>
-    </div>
-
-    <div class="success-overlay" id="successOverlay">
-        <div class="success-icon"></div>
-        <div class="success-text">Перевод выполнен успешно!</div>
-        <div class="success-amount" id="successAmount"></div>
-    </div>
-    <div class="animation-container" id="renameAnimation">
-        <div class="checkmark">✓</div>
-        <div class="message">Название счета изменено!</div>
-        <div class="new-account-name" id="animatedAccountName"></div>
-      </div>
     <div class="animation-container" id="new_chetAnimation">
         <div class="checkmark">✓</div>
-        <div class="message">Новый счет создан</div>
-        <div class="new-account-name" id="animatedAccountName"></div>
-      </div>
+        <div class="message">Перевод выполнен</div>
+        <div class="new-account-name" id="animatedAccountName123"></div>
+    </div>
 
-      <style>
-#photo_user {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;  /* Лучше 50% для идеального круга */
-    display: block;      /* Блочный элемент для margin:auto */
-    margin: 0 auto;      /* Автоматические отступы по бокам */
-}
-#name_user_in_user_info {
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: fit-content; /* или конкретная ширина, например 200px */
-}
-        #ModalUserInfoRenamePhoto{
-            text-align: center;
-            cursor: pointer;
+
+    <script>
+
+        function Animation(money) {
+            const animation = document.getElementById('new_chetAnimation');
+            const nameElement = document.getElementById("animatedAccountName123");
+            // Устанавливаем новое имя
+            nameElement.textContent = money + "₽";
+
+            // Показываем анимацию
+            animation.classList.add('show');
+
+            // Добавляем конфетти (опционально)
+            createConfetti();
+
+            // Автоматическое скрытие через 3 секунды
+            setTimeout(() => {
+                animation.classList.remove('show');
+            }, 3000);
         }
-        #ob_info{
-            margin-top: 30px;
-            text-align: center;
+
+        async function translate_money_chet(){
+            const name_chet_one = document.getElementById("fromAccount").value;
+            const name_chet_two = document.getElementById("toAccount").value;
+            const money = document.getElementById("transferAmountBetween").value;
+            const user_id = localStorage.getItem("user_id")
+
+            const money_user = document.getElementById("card-balance").textContent;
+            console.log(money_user)
+            console.log(user_id)
+
+            if(name_chet_one == name_chet_two){
+                alert("Счета должны различатся")
+                return;
+            }
+
+            const response = await fetch("https://hellohost-8hql.onrender.com/app/translations_chet", {
+                method: "POST",
+                headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                body: JSON.stringify({
+                    user_id: String(user_id),
+                    name_chet_one: String(name_chet_one),
+                    name_chet_two: String(name_chet_two),
+                    money: String(money)
+                })
+            })
+            if(response.ok){
+                Animation(money)
+                loadUserData()
+
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                document.getElementById('betweenAccountsModal').classList.remove('active');
+
+            }
+            else{
+                const data = await response.json()
+                const f = data.detail
+                document.getElementById("error_chet").textContent = f.slice(9, f.length);
+            }
+
+
         }
-        #st{
-            color: #4f8ff8;
-            font-size: 45px;
+        function loadAccounts() {
+            const defaultAccount = "Главный щет";
+            const chet_two = localStorage.getItem("chet_two");
+            const chet_three = localStorage.getItem("chet_three");
+
+            // Формируем HTML для списка счетов
+            let accountsHTML = `<option value="${defaultAccount}">${defaultAccount}</option>`;
+
+            // Добавляем второй счет, если он есть
+            if (chet_two && chet_two !== "not") {
+                accountsHTML += `<option value="${chet_two}">${chet_two}</option>`;
+            }
+
+            // Добавляем третий счет, если он есть
+            if (chet_three && chet_three !== "not") {
+                accountsHTML += `<option value="${chet_three}">${chet_three}</option>`;
+            }
+
+            // Вставляем счета в оба <select>
+            document.getElementById("fromAccount").innerHTML += accountsHTML;
+            document.getElementById("toAccount").innerHTML += accountsHTML;
         }
-      </style>
-      <div class="modal-overlay" id="ModalUserInfo">
-        <div class="modal"><br>
-            <p id="st">←</p>
-            <img src="https://yastatic.net/naydex/yandex-search/i12tyh084/a3e3e896_R/rzVBW48SpldEPZsi3FxYsuhWDmMxveAOP7EDHRWinsHIVwdMiA3F-8U0gbYItzGYBN8BO_9mzRwM5UBuY-j45YZmTWWiIMl4fwHnEvp7cq7xFgRjPbz1HhTD" alt="" id="photo_user">
-            
-            <h2 id="name_user_in_user_info"></h2>
-            <div class="modal-header">
+
+        // Загружаем счета сразу при открытии страницы
+        window.addEventListener('DOMContentLoaded', loadAccounts);
+    </script>
+</div>
+
+<div class="modal-overlay" id="PlusChrtModla">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Пополнение счета</h3>
+            <button class="close-btn" id="closeMpdalKres">&times;</button>
+        </div>
+        <div class="modal-body">
+
+            <div class="bank-card2">
+                <div class="card-logo">Clear Premium</div>
+                <div class="card-chip"></div><br>
+                <div class="card-number" id="info_cart2"></div>
+                <div class="card-footer">
+                    <div class="card-holder" id="name_card_holder12"></div>
+                    <div class="card-expiry">09/35</div>
+                </div>
+                <div class="card-balance" id="card-balance2"></div>
             </div>
-            <div class="modal-body">
-                <div class="user-profile-container">
-                    <h3 class="profile-title" id="ob_info">Общая информация</h3>
-                    
-                    <div class="profile-card">
-                        <!-- Основная информация в шапке -->
-                        <div class="profile-header">
-                        </div>
-                        
-                        <!-- Детальная информация -->
-                        <div class="profile-details">
-                            
-                            <div class="detail-row">
-                                <span class="detail-label">Имя:</span>
-                                <span id="user_name_prfil" class="detail-value"></span>
-                            </div>
-                            
-                            <div class="detail-row">
-                                <span class="detail-label">Фамилия:</span>
-                                <span id="user_three_name_prfil" class="detail-value"></span>
-                            </div>
-                            
-                            <div class="detail-row">
-                                <span class="detail-label">Отчество:</span>
-                                <span id="user_frame_prfil" class="detail-value"></span>
-                            </div>
-                            
+        </div><br>
+        <div class="buttransl" style="display: flex; justify-content: space-between; gap: 10%;">
+            <button onclick="sebe()" id="btn_n" class="btn btn-outline" style="width: 60%; margin-top: 10px; display: flex; justify-content: center;">
+                <span id="per" style="margin: 0; width: 70%; text-align: center;">Перевести себе</span>
+            </button>
 
-                            <div class="detail-row">
-                                <span class="detail-label">Телефон:</span>
-                                <span id="user_phone_prfil" class="detail-value">+7 (XXX) XXX-XX-XX</span>
-                            </div>
-                            
-                            <div class="detail-row">
-                                <span class="detail-label">Карта:</span>
-                                <span id="user_data_chet_prfil" class="detail-value">01.01.2023</span>
-                            </div>
-                            
-                            <div class="detail-row balance-row">
-                                <span class="detail-label">Баланс:</span>
-                                <span id="card_balance212" class="detail-value balance">0 ₽</span>
-                            </div>
+            <button onclick="nosebe()" id="btn_n" class="btn btn-outline" style="width: 60%; margin-top: 10px; display: flex; justify-content: center;">
+                <span id="per" style="margin: 0; width: 70%; text-align: center;">Перевести другому</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+
+        function plus(){
+            const name = document.getElementById("name").textContent;
+            const money = document.getElementById("card-balance").textContent;
+            const number = document.getElementById("info_cart").textContent;
+
+            console.log(name)
+            document.getElementById("name_card_holder12").innerHTML = name
+            document.getElementById("card-balance2").innerHTML = money
+            document.getElementById("info_cart2").innerHTML = number
+
+        }
+
+        function sebe(){
+            document.getElementById('PlusChrtModla').classList.remove('active');
+            document.getElementById('betweenAccountsModal').classList.add('active');
+        }
+
+        function nosebe(){
+            document.getElementById('PlusChrtModla').classList.remove('active');
+            document.getElementById('transferModal').classList.add('active');
+        }
+
+    </script>
+
+    <div class="animation-container" id="new_chetAnimation">
+        <div class="checkmark">✓</div>
+        <div class="message">Перевод выполнен</div>
+        <div class="new-account-name" id="animatedAccountName123"></div>
+    </div>
+</div>
+
+
+
+
+<!-- Модальное окно всех операций -->
+<div class="modal-overlay" id="allOperationsModal">
+    <div class="modal operations-modal">
+        <div class="operations-header">
+            <h3 class="modal-title">Все операции</h3>
+            <button class="close-btn" id="closeOperationsModalBtn">&times;</button>
+        </div>
+        <div class="operations-list" id="allOperationsList">
+            <!-- Операции будут добавлены здесь динамически -->
+        </div>
+    </div>
+</div>
+
+
+<!-- Модальное окно пополнения -->
+
+
+<!-- Оверлеи для анимаций -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loader"></div>
+    <div class="loading-text">Выполняется перевод...</div>
+</div>
+
+<div class="success-overlay" id="successOverlay">
+    <div class="success-icon"></div>
+    <div class="success-text">Перевод выполнен успешно!</div>
+    <div class="success-amount" id="successAmount"></div>
+</div>
+<div class="animation-container" id="renameAnimation">
+    <div class="checkmark">✓</div>
+    <div class="message">Название счета изменено!</div>
+    <div class="new-account-name" id="animatedAccountName"></div>
+</div>
+<div class="animation-container" id="new_chetAnimation">
+    <div class="checkmark">✓</div>
+    <div class="message">Новый счет создан</div>
+    <div class="new-account-name" id="animatedAccountName"></div>
+</div>
+
+<style>
+    #photo_user {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;  /* Лучше 50% для идеального круга */
+        display: block;      /* Блочный элемент для margin:auto */
+        margin: 0 auto;      /* Автоматические отступы по бокам */
+    }
+    #name_user_in_user_info {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: fit-content; /* или конкретная ширина, например 200px */
+    }
+    #ModalUserInfoRenamePhoto{
+        text-align: center;
+        cursor: pointer;
+    }
+    #ob_info{
+        margin-top: 30px;
+        text-align: center;
+    }
+    #st{
+        color: #4f8ff8;
+        font-size: 45px;
+    }
+</style>
+<div class="modal-overlay" id="ModalUserInfo">
+    <div class="modal"><br>
+        <p id="st">←</p>
+        <img src="https://yastatic.net/naydex/yandex-search/i12tyh084/a3e3e896_R/rzVBW48SpldEPZsi3FxYsuhWDmMxveAOP7EDHRWinsHIVwdMiA3F-8U0gbYItzGYBN8BO_9mzRwM5UBuY-j45YZmTWWiIMl4fwHnEvp7cq7xFgRjPbz1HhTD" alt="" id="photo_user">
+
+        <h2 id="name_user_in_user_info"></h2>
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+            <div class="user-profile-container">
+                <h3 class="profile-title" id="ob_info">Общая информация</h3>
+
+                <div class="profile-card">
+                    <!-- Основная информация в шапке -->
+                    <div class="profile-header">
+                    </div>
+
+                    <!-- Детальная информация -->
+                    <div class="profile-details">
+
+                        <div class="detail-row">
+                            <span class="detail-label">Имя:</span>
+                            <span id="user_name_prfil" class="detail-value"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Фамилия:</span>
+                            <span id="user_three_name_prfil" class="detail-value"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Отчество:</span>
+                            <span id="user_frame_prfil" class="detail-value"></span>
+                        </div>
+
+
+                        <div class="detail-row">
+                            <span class="detail-label">Телефон:</span>
+                            <span id="user_phone_prfil" class="detail-value">+7 (XXX) XXX-XX-XX</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Карта:</span>
+                            <span id="user_data_chet_prfil" class="detail-value">01.01.2023</span>
+                        </div>
+
+                        <div class="detail-row balance-row">
+                            <span class="detail-label">Баланс:</span>
+                            <span id="card_balance212" class="detail-value balance">0 ₽</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <style>
-                .user-profile-container {
-                    max-width: 500px;
-                    margin: 0 auto;
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                }
-                
-                .profile-title {
-                    text-align: center;
-                    color: #2c3e50;
-                    margin-bottom: 20px;
-                    font-weight: 600;
-                }
-                
-                .profile-card {
-                    background: #ffffff;
-                    border-radius: 10px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                    padding: 25px;
-                    border: 1px solid #e0e0e0;
-                }
-                
-                .profile-header {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 25px;
-                    padding-bottom: 20px;
-                    border-bottom: 1px solid #f0f0f0;
-                }
-                
-                .avatar2 {
-                    width: 70px;
-                    height: 70px;
-                    background-color: #f8f9fa;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 20px;
-                    color: #6c757d;
-                    font-size: 40px;
-                }
-                
-                .user-main-info {
-                    flex-grow: 1;
-                }
-                
-                .user-name {
-                    margin: 0;
-                    color: #343a40;
-                    font-size: 1.4rem;
-                }
-                
-                .user-status {
-                    color: #6c757d;
-                    font-size: 0.9rem;
-                    margin-top: 5px;
-                }
-                
-                .profile-details {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 15px;
-                }
-                
-                .detail-row {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 8px 0;
-                }
-                
-                .detail-label {
-                    color: #6c757d;
-                    font-weight: 500;
-                }
-                
-                .detail-value {
-                    color: #495057;
-                    font-weight: 600;
-                }
-                
-                .balance-row {
-                    margin-top: 10px;
-                    padding-top: 15px;
-                    border-top: 1px solid #f0f0f0;
-                }
-                
-                .balance {
-                    color: #28a745;
-                    font-size: 1.1rem;
-                }
-                #uploadBtn{opacity: 0; margin-left: 34%; margin-top: 0px;}
-            </style>
-
-            <!-- Подключение Font Awesome для иконки пользователя -->
-            </div><br>
         </div>
-        <div class="modal-overlay" id="ModalUserInfoRenamePhoto">
-            <div class="modal">
-                <h2 onclick="document.getElementById('photoInput').click()">Изменить Фото</h2>
-                <input 
-                    type="file" 
-                    id="photoInput" 
-                    style="display: none;" 
-                    accept="image/*" 
-                    onchange="handleFileUpload(this.files)"
-                >
-                <!-- Добавлен блок для превью -->
-                <img id="preview" style="max-width: 100px; display: none; margin: 10px 0;">
-                <!-- Добавлен блок для статуса -->
-                <div id="statusMessage" style="margin: 10px 0; color: green;"></div>
-                <button id="uploadBtn" onclick="zag()" class="btn">Потвердить</button>
-            </div>
-        </div>
-        
-        <script>
-            // Глобальные переменные для доступа из функций
-            let selectedFile = null;
-            const statusMessage = document.getElementById('statusMessage');
-            const preview = document.getElementById('preview');
-        
-            async function handleFileUpload(files) {
-                if (files.length === 0) return;
-                
-                selectedFile = files[0];
-                document.getElementById("uploadBtn").style.marginTop = "20px";
-                document.getElementById("uploadBtn").style.opacity = "1";
 
+        <style>
+            .user-profile-container {
+                max-width: 500px;
+                margin: 0 auto;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-        
-            async function zag(){
-                if (!selectedFile) {
-                    statusMessage.textContent = 'Выберите файл сначала!';
-                    statusMessage.style.color = 'red';
-                    return;
-                }
-                
-                document.getElementById("uploadBtn").style.opacity = "1";
-                const user_id = localStorage.getItem("user_id")
 
-                const formData = new FormData();
-                formData.append('photo', selectedFile);
-                formData.append('user_id', user_id);
-                try {
-                    const response = await fetch('http://192.168.1.63:8000/upload', {
-                        method: 'POST',
-                        body: formData
-                    });
-        
-                    const result = await response.json();
-                    console.log(result.name_photo)
-                    if (response.ok) {
-                        statusMessage.textContent = result.message;
-                        statusMessage.style.color = 'green';
-                        console.log('Файл сохранен как:', result.path);
-                        console.log("RES", result.name_photo)
-                        
-
-                        localStorage.setItem("pjoto_user", result.name_photo)
-                        const a = localStorage.getItem("pjoto_user")
-                        document.getElementById("uploadBtn").style.opacity = "0";
-
-
-
-                        document.getElementById("photo_user").src = "http://192.168.1.63:8000/uploads/"+a;
-                        
-                        showSuccessAnimation();
-                        setTimeout(() => {
-                            statusMessage.textContent = ""
-                        }, 2000);
-
-                    } else {
-                        statusMessage.textContent = result.detail;
-                        statusMessage.style.color = 'red';
-                    }
-                } catch (error) {
-                    statusMessage.textContent = 'Ошибка соединения с сервером';
-                    statusMessage.style.color = 'red';
-                    console.error('Ошибка:', error);
-                }
+            .profile-title {
+                text-align: center;
+                color: #2c3e50;
+                margin-bottom: 20px;
+                font-weight: 600;
             }
-        
-            function showSuccessAnimation() {
-                const animation = document.getElementById('new_chetAnimation');
-                animation.style.display = 'block';
+
+            .profile-card {
+                background: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                border: 1px solid #e0e0e0;
+            }
+
+            .profile-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .avatar2 {
+                width: 70px;
+                height: 70px;
+                background-color: #f8f9fa;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 20px;
+                color: #6c757d;
+                font-size: 40px;
+            }
+
+            .user-main-info {
+                flex-grow: 1;
+            }
+
+            .user-name {
+                margin: 0;
+                color: #343a40;
+                font-size: 1.4rem;
+            }
+
+            .user-status {
+                color: #6c757d;
+                font-size: 0.9rem;
+                margin-top: 5px;
+            }
+
+            .profile-details {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .detail-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+            }
+
+            .detail-label {
+                color: #6c757d;
+                font-weight: 500;
+            }
+
+            .detail-value {
+                color: #495057;
+                font-weight: 600;
+            }
+
+            .balance-row {
+                margin-top: 10px;
+                padding-top: 15px;
+                border-top: 1px solid #f0f0f0;
+            }
+
+            .balance {
+                color: #28a745;
+                font-size: 1.1rem;
+            }
+            #uploadBtn{opacity: 0; margin-left: 34%; margin-top: 0px;}
+        </style>
+
+        <!-- Подключение Font Awesome для иконки пользователя -->
+    </div><br>
+</div>
+<div class="modal-overlay" id="ModalUserInfoRenamePhoto">
+    <div class="modal">
+        <h2 onclick="document.getElementById('photoInput').click()">Изменить Фото</h2>
+        <input
+                type="file"
+                id="photoInput"
+                style="display: none;"
+                accept="image/*"
+                onchange="handleFileUpload(this.files)"
+        >
+        <!-- Добавлен блок для превью -->
+        <img id="preview" style="max-width: 100px; display: none; margin: 10px 0;">
+        <!-- Добавлен блок для статуса -->
+        <div id="statusMessage" style="margin: 10px 0; color: green;"></div>
+        <button id="uploadBtn" onclick="zag()" class="btn">Потвердить</button>
+    </div>
+</div>
+
+<script>
+    // Глобальные переменные для доступа из функций
+    let selectedFile = null;
+    const statusMessage = document.getElementById('statusMessage');
+    const preview = document.getElementById('preview');
+
+    async function handleFileUpload(files) {
+        if (files.length === 0) return;
+
+        selectedFile = files[0];
+        document.getElementById("uploadBtn").style.marginTop = "20px";
+        document.getElementById("uploadBtn").style.opacity = "1";
+
+    }
+
+    async function zag(){
+        if (!selectedFile) {
+            statusMessage.textContent = 'Выберите файл сначала!';
+            statusMessage.style.color = 'red';
+            return;
+        }
+
+        document.getElementById("uploadBtn").style.opacity = "1";
+        const user_id = localStorage.getItem("user_id")
+
+        const formData = new FormData();
+        formData.append('photo', selectedFile);
+        formData.append('user_id', user_id);
+        try {
+            const response = await fetch('https://hellohost-8hql.onrender.com/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            console.log(result.name_photo)
+            if (response.ok) {
+                statusMessage.textContent = result.message;
+                statusMessage.style.color = 'green';
+                console.log('Файл сохранен как:', result.path);
+                console.log("RES", result.name_photo)
+
+
+                localStorage.setItem("pjoto_user", result.name_photo)
+                const a = localStorage.getItem("pjoto_user")
+                document.getElementById("uploadBtn").style.opacity = "0";
+
+
+
+                document.getElementById("photo_user").src = "https://hellohost-8hql.onrender.com/uploads/"+a;
+
+                showSuccessAnimation();
                 setTimeout(() => {
-                    animation.style.display = 'none';
-                }, 3000);
+                    statusMessage.textContent = ""
+                }, 2000);
+
+            } else {
+                statusMessage.textContent = result.detail;
+                statusMessage.style.color = 'red';
             }
-        </script>
-        
-        <div class="animation-container" id="new_chetAnimation" style="display: none;">
-            <div class="checkmark">✓</div>
-            <div class="message" id="yes_photo">Фото успешно загружено</div>
-            <div class="new-account-name" id="animatedAccountName123"></div>
-        </div>
-    <script>
+        } catch (error) {
+            statusMessage.textContent = 'Ошибка соединения с сервером';
+            statusMessage.style.color = 'red';
+            console.error('Ошибка:', error);
+        }
+    }
+
+    function showSuccessAnimation() {
+        const animation = document.getElementById('new_chetAnimation');
+        animation.style.display = 'block';
+        setTimeout(() => {
+            animation.style.display = 'none';
+        }, 3000);
+    }
+</script>
+
+<div class="animation-container" id="new_chetAnimation" style="display: none;">
+    <div class="checkmark">✓</div>
+    <div class="message" id="yes_photo">Фото успешно загружено</div>
+    <div class="new-account-name" id="animatedAccountName123"></div>
+</div>
+<script>
     function showRenameAnimation(newName) {
         const animation = document.getElementById('renameAnimation');
         const nameElement = document.getElementById('animatedAccountName');
@@ -2294,10 +2294,10 @@
 
         // Автоматическое скрытие через 3 секунды
         setTimeout(() => {
-          animation.classList.remove('show');
-  }, 3000);
-}
-function showRenameAnimation_two(newName) {
+            animation.classList.remove('show');
+        }, 3000);
+    }
+    function showRenameAnimation_two(newName) {
         const animation = document.getElementById('new_chetAnimation');
         const nameElement = document.getElementById('animatedAccountName');
 
@@ -2312,127 +2312,127 @@ function showRenameAnimation_two(newName) {
 
         // Автоматическое скрытие через 3 секунды
         setTimeout(() => {
-          animation.classList.remove('show');
-  }, 3000);
-}
-// Функция для конфетти (дополнительный эффект)
-function createConfetti() {
-  const colors = ['#4285f4', '#34a853', '#fbbc05', '#ea4335'];
-  
-  for (let i = 0; i < 50; i++) {
-    const confetti = document.createElement('div');
-    confetti.style.position = 'fixed';
-    confetti.style.width = '10px';
-    confetti.style.height = '10px';
-    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    confetti.style.borderRadius = '50%';
-    confetti.style.left = Math.random() * 100 + 'vw';
-    confetti.style.top = '-10px';
-    confetti.style.animation = `confetti ${Math.random() * 3 + 2}s linear forwards`;
-    document.body.appendChild(confetti);
-    
-    // Удаляем элемент после анимации
-    setTimeout(() => {
-      confetti.remove();
-    }, 5000);
-  }
-}
-        // Функция для открытия модального окна переименования
-        function openRenameModal() {
-            // Закрываем текущее модальное окно
-            document.getElementById('accountInfoModal').classList.remove('active');
-            // Открываем модальное окно переименования
-            document.getElementById('renameAccountModal').classList.add('active');
+            animation.classList.remove('show');
+        }, 3000);
+    }
+    // Функция для конфетти (дополнительный эффект)
+    function createConfetti() {
+        const colors = ['#4285f4', '#34a853', '#fbbc05', '#ea4335'];
+
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = '50%';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-10px';
+            confetti.style.animation = `confetti ${Math.random() * 3 + 2}s linear forwards`;
+            document.body.appendChild(confetti);
+
+            // Удаляем элемент после анимации
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
         }
-        
-        // Функция для возврата к информации о счете
-        function backToAccountModal() {
-            // Закрываем модальное окно переименования
+    }
+    // Функция для открытия модального окна переименования
+    function openRenameModal() {
+        // Закрываем текущее модальное окно
+        document.getElementById('accountInfoModal').classList.remove('active');
+        // Открываем модальное окно переименования
+        document.getElementById('renameAccountModal').classList.add('active');
+    }
+
+    // Функция для возврата к информации о счете
+    function backToAccountModal() {
+        // Закрываем модальное окно переименования
+        document.getElementById('renameAccountModal').classList.remove('active');
+        // Открываем модальное окно информации о счете
+        document.getElementById('accountInfoModal').classList.add('active');
+    }
+    function name_chet() {
+        const name_chet = document.getElementById("accountNameDisplay").textContent;
+        localStorage.setItem("name_chet_for_rename", name_chet)
+    }
+    function closeRenameModal() {
+        document.getElementById('renameAccountModal').classList.remove('active');
+    }
+    async function rename_name_chet(){
+        const new_name_chet = document.getElementById("newAccountNameInput").value;
+
+        const name_chet = document.getElementById("accountNameDisplay").textContent;
+        const user_id = localStorage.getItem("user_id")
+        const past_name = localStorage.getItem("name_chet_for_rename")
+
+        console.log(name_chet)
+
+
+        if(new_name_chet == past_name){
+            alert("Вы не задали нове имя счету")
+            return
+        }
+        const response = await fetch("https://hellohost-8hql.onrender.com/apps/rename_chet", {
+            method: "POST",
+            headers: {"Accept": "application/json", "Content-Type": "application/json"},
+            body: JSON.stringify({
+                user_id: user_id,
+                new_name_chet: new_name_chet,
+                past_chet_name: past_name
+            })
+        })
+
+        if(response.ok){
+            closeRenameModal()
+            showRenameAnimation(new_name_chet);
+            setTimeout(() => {
+                console.log("S");  // Проверка, что таймер сработал
+                location.reload(); // Перезагрузка только после задержки
+            }, 1700); // 20000 мс = 20 секунд
+        }
+    }
+
+    // Инициализация после загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Обработчик для кнопки переименования
+        document.getElementById('renameAccountBtn').addEventListener('click', openRenameModal);
+
+        // Обработчик для кнопки "Назад" в окне переименования
+        document.getElementById('backRenameBtn').addEventListener('click', backToAccountModal);
+
+        // Обработчик для закрытия окна переименования
+        document.getElementById('closeRenameModalBtn').addEventListener('click', function() {
             document.getElementById('renameAccountModal').classList.remove('active');
-            // Открываем модальное окно информации о счете
-            document.getElementById('accountInfoModal').classList.add('active');
-        }
-        function name_chet() {
-            const name_chet = document.getElementById("accountNameDisplay").textContent;
-            localStorage.setItem("name_chet_for_rename", name_chet)
-        }
-        function closeRenameModal() {
-    document.getElementById('renameAccountModal').classList.remove('active');
-}
-        async function rename_name_chet(){
-            const new_name_chet = document.getElementById("newAccountNameInput").value;
-
-            const name_chet = document.getElementById("accountNameDisplay").textContent;
-            const user_id = localStorage.getItem("user_id")
-            const past_name = localStorage.getItem("name_chet_for_rename")
-
-            console.log(name_chet)
-            
-
-            if(new_name_chet == past_name){
-                alert("Вы не задали нове имя счету")
-                return
-            }
-                const response = await fetch("http://192.168.1.63:8000/apps/rename_chet", {
-                    method: "POST",
-                    headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        user_id: user_id,
-                        new_name_chet: new_name_chet,
-                        past_chet_name: past_name
-                    })
-                })
-                
-                if(response.ok){
-                    closeRenameModal()
-                    showRenameAnimation(new_name_chet);  
-                    setTimeout(() => {
-                        console.log("S");  // Проверка, что таймер сработал
-                        location.reload(); // Перезагрузка только после задержки
-                    }, 1700); // 20000 мс = 20 секунд
-                }
-        }
-
- // Инициализация после загрузки DOM
- document.addEventListener('DOMContentLoaded', function() {
-            // Обработчик для кнопки переименования
-            document.getElementById('renameAccountBtn').addEventListener('click', openRenameModal);
-            
-            // Обработчик для кнопки "Назад" в окне переименования
-            document.getElementById('backRenameBtn').addEventListener('click', backToAccountModal);
-            
-            // Обработчик для закрытия окна переименования
-            document.getElementById('closeRenameModalBtn').addEventListener('click', function() {
-                document.getElementById('renameAccountModal').classList.remove('active');
-            });
-            document.getElementById('closeRenameModalBtn').addEventListener('click', closeRenameModal);
-            // Обработчик для закрытия окна информации о счете
-            document.getElementById('closeAccountModalBtn').addEventListener('click', function() {
-                document.getElementById('accountInfoModal').classList.remove('active');
-            });
-            
-            // Закрытие модальных окон при клике на фон
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                    }
-                });
-            });
-            
-            // Обработчик для кнопки "Сохранить"
-            
         });
-        
-        // Функция для подтверждения удаления счета
-        function confirmDeleteAccount() {
-            // Здесь будет логика удаления счета
-            alert('Счет успешно удален');
-            document.getElementById('deleteConfirmationModal').classList.remove('active');
+        document.getElementById('closeRenameModalBtn').addEventListener('click', closeRenameModal);
+        // Обработчик для закрытия окна информации о счете
+        document.getElementById('closeAccountModalBtn').addEventListener('click', function() {
             document.getElementById('accountInfoModal').classList.remove('active');
-            // Обновляем данные
-            loadUserData();
-        }
+        });
+
+        // Закрытие модальных окон при клике на фон
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Обработчик для кнопки "Сохранить"
+
+    });
+
+    // Функция для подтверждения удаления счета
+    function confirmDeleteAccount() {
+        // Здесь будет логика удаления счета
+        alert('Счет успешно удален');
+        document.getElementById('deleteConfirmationModal').classList.remove('active');
+        document.getElementById('accountInfoModal').classList.remove('active');
+        // Обновляем данные
+        loadUserData();
+    }
     function openAccountModal(name, number, type, balance) {
         document.getElementById('accountNameDisplay').textContent = name;
         document.getElementById('accountNumberDisplay').textContent = number;
@@ -2468,108 +2468,108 @@ function createConfetti() {
         const modal = document.getElementById('accountInfoModal');
         modal.classList.add('active');
     }
-        // Функция для открытия модального окна переименования
-        function openRenameModal() {
-            document.getElementById('accountInfoModal').classList.remove('active');
-            document.getElementById('renameAccountModal').classList.add('active');
-        }
-        
-        // Функция для возврата из модального окна переименования
-        function backToAccountModal() {
-            document.getElementById('renameAccountModal').classList.remove('active');
-            document.getElementById('accountInfoModal').classList.add('active');
-        }
+    // Функция для открытия модального окна переименования
+    function openRenameModal() {
+        document.getElementById('accountInfoModal').classList.remove('active');
+        document.getElementById('renameAccountModal').classList.add('active');
+    }
 
-        function delete_chet_name(){
-            const a = document.getElementById("accountNameDisplay").textContent;
-            localStorage.setItem("name_chet_for_delete", a)
-            console.log(a)
-        }
+    // Функция для возврата из модального окна переименования
+    function backToAccountModal() {
+        document.getElementById('renameAccountModal').classList.remove('active');
+        document.getElementById('accountInfoModal').classList.add('active');
+    }
 
-        async function delete_chet() {
-            const name_delete_chet = localStorage.getItem("name_chet_for_delete")
-            console.log(name_delete_chet)
+    function delete_chet_name(){
+        const a = document.getElementById("accountNameDisplay").textContent;
+        localStorage.setItem("name_chet_for_delete", a)
+        console.log(a)
+    }
 
-            const user_id = localStorage.getItem("user_id")
+    async function delete_chet() {
+        const name_delete_chet = localStorage.getItem("name_chet_for_delete")
+        console.log(name_delete_chet)
 
-            const response = await fetch("http://192.168.1.63:8000/app/delete_chet", {
-                method: "POST",
-                headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                body: JSON.stringify({
-                    user_id: user_id, 
-                    name_delete_chet: name_delete_chet
-                })
+        const user_id = localStorage.getItem("user_id")
+
+        const response = await fetch("https://hellohost-8hql.onrender.com/app/delete_chet", {
+            method: "POST",
+            headers: {"Accept": "application/json", "Content-Type": "application/json"},
+            body: JSON.stringify({
+                user_id: user_id,
+                name_delete_chet: name_delete_chet
             })
+        })
 
-            if(response.ok){
-                console.log("OK")
-                location.reload()
-            }
-
+        if(response.ok){
+            console.log("OK")
+            location.reload()
         }
-        // Инициализация после загрузки DOM
-        document.addEventListener('DOMContentLoaded', function() {
-            // Закрытие модального окна счета
-            document.getElementById('closeAccountModalBtn').addEventListener('click', function() {
-                document.getElementById('accountInfoModal').classList.remove('active');
-            });
-            
-            // Открытие модального окна подтверждения удаления
-            document.getElementById('deleteAccountBtn').addEventListener('click', function() {
-                document.getElementById('deleteConfirmationModal').classList.add('active');
-            });
-            
-            // Закрытие модального окна подтверждения удаления
-            document.getElementById('closeDeleteModalBtn').addEventListener('click', function() {
-                document.getElementById('deleteConfirmationModal').classList.remove('active');
-            });
-            
-            // Отмена удаления
-            document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
-                document.getElementById('deleteConfirmationModal').classList.remove('active');
-            });
-            
-            
-            
-            // Клик по фону модального окна
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                    }
-                });
+
+    }
+    // Инициализация после загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Закрытие модального окна счета
+        document.getElementById('closeAccountModalBtn').addEventListener('click', function() {
+            document.getElementById('accountInfoModal').classList.remove('active');
+        });
+
+        // Открытие модального окна подтверждения удаления
+        document.getElementById('deleteAccountBtn').addEventListener('click', function() {
+            document.getElementById('deleteConfirmationModal').classList.add('active');
+        });
+
+        // Закрытие модального окна подтверждения удаления
+        document.getElementById('closeDeleteModalBtn').addEventListener('click', function() {
+            document.getElementById('deleteConfirmationModal').classList.remove('active');
+        });
+
+        // Отмена удаления
+        document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
+            document.getElementById('deleteConfirmationModal').classList.remove('active');
+        });
+
+
+
+        // Клик по фону модального окна
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
             });
         });
-        
-        function shakeInput() {
-            const input = document.getElementById("phone_transl_phone");
-            const originalPosition = input.offsetLeft;
-            let pos = 0;
-            const shakeInterval = setInterval(() => {
-              pos++;
-              input.style.transform = `translateX(${Math.sin(pos) * 7}px)`;
-              if (pos >= 17) {
+    });
+
+    function shakeInput() {
+        const input = document.getElementById("phone_transl_phone");
+        const originalPosition = input.offsetLeft;
+        let pos = 0;
+        const shakeInterval = setInterval(() => {
+            pos++;
+            input.style.transform = `translateX(${Math.sin(pos) * 7}px)`;
+            if (pos >= 17) {
                 clearInterval(shakeInterval);
                 input.style.transform = '';
-              }
-            }, 30);
-        }
-        
-        function shakeInput2() {
-            const input = document.getElementById("summa_transl_phone");
-            const originalPosition = input.offsetLeft;
-            let pos = 0;
-            const shakeInterval = setInterval(() => {
-              pos++;
-              input.style.transform = `translateX(${Math.sin(pos) * 7}px)`;
-              if (pos >= 17) {
+            }
+        }, 30);
+    }
+
+    function shakeInput2() {
+        const input = document.getElementById("summa_transl_phone");
+        const originalPosition = input.offsetLeft;
+        let pos = 0;
+        const shakeInterval = setInterval(() => {
+            pos++;
+            input.style.transform = `translateX(${Math.sin(pos) * 7}px)`;
+            if (pos >= 17) {
                 clearInterval(shakeInterval);
                 input.style.transform = '';
-              }
-            }, 30);
-        }
-        
-        // Объявляем функцию send() в глобальной области видимости
+            }
+        }, 30);
+    }
+
+    // Объявляем функцию send() в глобальной области видимости
     async function send() {
         const number_phone = document.getElementById("phone_transl_phone").value;
         const summa = document.getElementById("summa_transl_phone").value;
@@ -2600,7 +2600,7 @@ function createConfetti() {
         const value = localStorage.getItem('user_id');
         console.log(value);
 
-        const response = await fetch("http://192.168.1.63:8000/app_phone/translations_phone", {
+        const response = await fetch("https://hellohost-8hql.onrender.com/app_phone/translations_phone", {
             method: "POST",
             headers: {"Accept": "application/json", "Content-Type": "application/json"},
             body: JSON.stringify({
@@ -2695,7 +2695,7 @@ function createConfetti() {
             console.log(user_id_localstorage)
 
             if(user_id_localstorage){
-                const response = await fetch("http://192.168.1.63:8000/user_in_app_po_user_id", {
+                const response = await fetch("https://hellohost-8hql.onrender.com/user_in_app_po_user_id", {
                     method: "POST",
                     headers: {"Accept": "application/json", "Content-Type": "application/json"},
                     body: JSON.stringify({ user_id: user_id_localstorage })
@@ -2745,10 +2745,10 @@ function createConfetti() {
                     const p = localStorage.getItem("pjoto_user")
                     console.log(p)
                     if (p) {
-                        document.getElementById("photo_user").src = "http://192.168.1.63:8000/uploads/" + p;
+                        document.getElementById("photo_user").src = "https://hellohost-8hql.onrender.com/uploads/" + p;
 
                         const avatar = document.getElementById("avatar");
-                        avatar.innerHTML = `<img src="http://192.168.1.63:8000/uploads/${p}">`;
+                        avatar.innerHTML = `<img src="https://hellohost-8hql.onrender.com/uploads/${p}">`;
                         avatar.classList.add("has-photo");
 
                         document.getElementById("photo_user").style.width = "150px";
@@ -2833,55 +2833,55 @@ function createConfetti() {
             }
         }
     }
-        // Управление модальными окнами
-        function setupModal(openBtnId, modalId, closeBtnId) {
-            const openBtn = document.getElementById(openBtnId);
-            const modal = document.getElementById(modalId);
-            const closeBtn = document.getElementById(closeBtnId);
-            
-            if (!openBtn || !modal || !closeBtn) return;
-            
-            openBtn.addEventListener('click', () => modal.classList.add('active'));
-            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.remove('active');
+    // Управление модальными окнами
+    function setupModal(openBtnId, modalId, closeBtnId) {
+        const openBtn = document.getElementById(openBtnId);
+        const modal = document.getElementById(modalId);
+        const closeBtn = document.getElementById(closeBtnId);
+
+        if (!openBtn || !modal || !closeBtn) return;
+
+        openBtn.addEventListener('click', () => modal.classList.add('active'));
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    }
+
+    async function len_oper(){
+        const len_oper_text = document.getElementById("len_oper_text").textContent;
+
+        if(len_oper_text == "→"){
+
+            const user_id_localstorage = localStorage.getItem('user_id');
+
+            const response = await fetch("https://hellohost-8hql.onrender.com/user_in_app_po_user_id", {
+                method: "POST",
+                headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                body: JSON.stringify({ user_id: user_id_localstorage })
+
             });
-        }
-        
-        async function len_oper(){
-            const len_oper_text = document.getElementById("len_oper_text").textContent;
-            
-            if(len_oper_text == "→"){
-                
-                const user_id_localstorage = localStorage.getItem('user_id');
+            if (response.ok) {
 
-                const response = await fetch("http://192.168.1.63:8000/user_in_app_po_user_id", {
-                    method: "POST",
-                    headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                    body: JSON.stringify({ user_id: user_id_localstorage })
-                
-                });
-                if (response.ok) {
-                    
-                    const data = await response.json();
-                    console.log(data);
+                const data = await response.json();
+                console.log(data);
 
 
-                    const operations = data.operation_user; // Добавил получение operations из data
-                    
-                    resOperations = operations.reverse()
-                    
-                    if (resOperations) {
-                        
-                        const container = document.getElementById("new_operation");
-                        container.innerHTML = "";
-                        document.getElementById("len_oper_text").innerHTML = "↓"
-                        resOperations.forEach(op => {
-                            const amountClass = op.summa_operation?.startsWith('+') ? 'positive' : 'negative';
-                            const opElement = document.createElement('div');
-                            opElement.className = 'transaction-item';
-                            opElement.innerHTML = `
+                const operations = data.operation_user; // Добавил получение operations из data
+
+                resOperations = operations.reverse()
+
+                if (resOperations) {
+
+                    const container = document.getElementById("new_operation");
+                    container.innerHTML = "";
+                    document.getElementById("len_oper_text").innerHTML = "↓"
+                    resOperations.forEach(op => {
+                        const amountClass = op.summa_operation?.startsWith('+') ? 'positive' : 'negative';
+                        const opElement = document.createElement('div');
+                        opElement.className = 'transaction-item';
+                        opElement.innerHTML = `
                                 <div class="transaction-info">
                                     <div class="transaction-icon">💼</div>
                                     <div class="transaction-details">
@@ -2891,46 +2891,46 @@ function createConfetti() {
                                 </div>
                                 <div class="transaction-amount ${amountClass}">${op.summa_operation}₽</div>
                             `;
-                            container.appendChild(opElement);
-                        });
-                    }
-                    window.scrollBy({
-                        top: 200,
-                        behavior: 'smooth' // для плавной прокрутки
+                        container.appendChild(opElement);
                     });
-                }       
+                }
+                window.scrollBy({
+                    top: 200,
+                    behavior: 'smooth' // для плавной прокрутки
+                });
             }
-            else if(len_oper_text == "↓"){
-                const user_id_localstorage = localStorage.getItem('user_id');
+        }
+        else if(len_oper_text == "↓"){
+            const user_id_localstorage = localStorage.getItem('user_id');
 
-                const response = await fetch("http://192.168.1.63:8000/user_in_app_po_user_id", {
-                    method: "POST",
-                    headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                    body: JSON.stringify({ user_id: user_id_localstorage })
-                
-                });
-                if (response.ok) {
-                    
-                    const data = await response.json();
-                    console.log(data);
+            const response = await fetch("https://hellohost-8hql.onrender.com/user_in_app_po_user_id", {
+                method: "POST",
+                headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                body: JSON.stringify({ user_id: user_id_localstorage })
+
+            });
+            if (response.ok) {
+
+                const data = await response.json();
+                console.log(data);
 
 
-                    const operations = data.operation_user; // Добавил получение operations из data
-                    
-                    resOperations = operations.reverse()
-                    
-                    res = resOperations.slice(0, 4)
-                    if (res) {
-                        
-                        const container = document.getElementById("new_operation");
-                        container.innerHTML = "";
-                        document.getElementById("len_oper_text").innerHTML = "→"
+                const operations = data.operation_user; // Добавил получение operations из data
 
-                        res.forEach(op => {
-                            const amountClass = op.summa_operation?.startsWith('+') ? 'positive' : 'negative';
-                            const opElement = document.createElement('div');
-                            opElement.className = 'transaction-item';
-                            opElement.innerHTML = `
+                resOperations = operations.reverse()
+
+                res = resOperations.slice(0, 4)
+                if (res) {
+
+                    const container = document.getElementById("new_operation");
+                    container.innerHTML = "";
+                    document.getElementById("len_oper_text").innerHTML = "→"
+
+                    res.forEach(op => {
+                        const amountClass = op.summa_operation?.startsWith('+') ? 'positive' : 'negative';
+                        const opElement = document.createElement('div');
+                        opElement.className = 'transaction-item';
+                        opElement.innerHTML = `
                                 <div class="transaction-info">
                                     <div class="transaction-icon">💼</div>
                                     <div class="transaction-details">
@@ -2940,86 +2940,86 @@ function createConfetti() {
                                 </div>
                                 <div class="transaction-amount ${amountClass}">${op.summa_operation}₽</div>
                             `;
-                            container.appendChild(opElement);
-                        });
-                    }
-                    window.scrollBy({
-                        top: -200,
-                        behavior: 'smooth' // для плавной прокрутки
+                        container.appendChild(opElement);
                     });
+                }
+                window.scrollBy({
+                    top: -200,
+                    behavior: 'smooth' // для плавной прокрутки
+                });
             }   }
-        }
+    }
 
-        // Инициализация после загрузки DOM
-        document.addEventListener('DOMContentLoaded', function() {
-            // Инициализация модальных окон
-            setupModal('newAccountBtn', 'newAccountModal', 'closeModalBtn');
-            setupModal('transferBtn', 'transferModal', 'closeTransferModalBtn');
-            setupModal('open_chet_transl', 'betweenAccountsModal', 'cancelBetweenTransfer');
-            setupModal('open_chet_transl', 'betweenAccountsModal', 'dddd');
-            setupModal('plus_chet', 'PlusChrtModla', 'closeMpdalKres');
-            setupModal('money_plata', 'transferModal', 'closeTransferModalBtn');
-            setupModal('user_info', 'ModalUserInfo', 'closeTransferModalBtn');
-            setupModal('user_info', 'ModalUserInfo', 'st');
-            setupModal('photo_user', 'ModalUserInfoRenamePhoto', 'uploadBtn');
+    // Инициализация после загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация модальных окон
+        setupModal('newAccountBtn', 'newAccountModal', 'closeModalBtn');
+        setupModal('transferBtn', 'transferModal', 'closeTransferModalBtn');
+        setupModal('open_chet_transl', 'betweenAccountsModal', 'cancelBetweenTransfer');
+        setupModal('open_chet_transl', 'betweenAccountsModal', 'dddd');
+        setupModal('plus_chet', 'PlusChrtModla', 'closeMpdalKres');
+        setupModal('money_plata', 'transferModal', 'closeTransferModalBtn');
+        setupModal('user_info', 'ModalUserInfo', 'closeTransferModalBtn');
+        setupModal('user_info', 'ModalUserInfo', 'st');
+        setupModal('photo_user', 'ModalUserInfoRenamePhoto', 'uploadBtn');
 
-            // Логика создания нового счета
-            document.getElementById('createAccountBtn')?.addEventListener('click', async function() {
-                const user_id = localStorage.getItem("user_id");
-                const name_chet = document.getElementById("name_chet").value;
-                if (!user_id) return;
-                                
-                try {
-                    const response = await fetch("http://192.168.1.63:8000/app/new_chet", {
-                        method: "POST",
-                        headers: {"Accept": "application/json", "Content-Type": "application/json"},
-                        body: JSON.stringify({ 
-                            user_id: user_id,
-                            name_chet: name_chet 
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        showRenameAnimation_two(name_chet);  
-                        setTimeout(() => {
+        // Логика создания нового счета
+        document.getElementById('createAccountBtn')?.addEventListener('click', async function() {
+            const user_id = localStorage.getItem("user_id");
+            const name_chet = document.getElementById("name_chet").value;
+            if (!user_id) return;
+
+            try {
+                const response = await fetch("https://hellohost-8hql.onrender.com/app/new_chet", {
+                    method: "POST",
+                    headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        user_id: user_id,
+                        name_chet: name_chet
+                    })
+                });
+
+                if (response.ok) {
+                    showRenameAnimation_two(name_chet);
+                    setTimeout(() => {
                         console.log("S");  // Проверка, что таймер сработал
                         location.reload(); // Перезагрузка только после задержки
                     }, 1700); // 20000 мс = 20 секунд
-                        document.getElementById('newAccountModal').classList.remove('active');
-                    }
-                } catch (error) {
-                    console.error('Ошибка создания счета:', error);
-                    alert('Произошла ошибка при создании счета');
+                    document.getElementById('newAccountModal').classList.remove('active');
                 }
-            });
-            
-            // Переключение между вкладками в модальном окне перевода
-            document.querySelectorAll('.transfer-tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.transfer-tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.transfer-content').forEach(c => c.classList.remove('active'));
-                    
-                    tab.classList.add('active');
-                    const transferContent = document.getElementById(`${tab.dataset.tab}-transfer`);
-                    if (transferContent) transferContent.classList.add('active');
-                });
-            });
+            } catch (error) {
+                console.error('Ошибка создания счета:', error);
+                alert('Произошла ошибка при создании счета');
+            }
+        });
 
-            // Выбор счета для списания
-            document.querySelectorAll('.account-selector').forEach(selector => {
-                selector.addEventListener('click', () => {
-                    document.querySelectorAll('.account-selector').forEach(s => s.classList.remove('active'));
-                    selector.classList.add('active');
-                });
+        // Переключение между вкладками в модальном окне перевода
+        document.querySelectorAll('.transfer-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.transfer-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.transfer-content').forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                const transferContent = document.getElementById(`${tab.dataset.tab}-transfer`);
+                if (transferContent) transferContent.classList.add('active');
             });
         });
+
+        // Выбор счета для списания
+        document.querySelectorAll('.account-selector').forEach(selector => {
+            selector.addEventListener('click', () => {
+                document.querySelectorAll('.account-selector').forEach(s => s.classList.remove('active'));
+                selector.classList.add('active');
+            });
+        });
+    });
 
     const user_id = localStorage.getItem("user_id")
     function exam(){
         if(!user_id){
-            window.location.href = "http://192.168.1.63:8000/auth"
+            window.location.href = "https://hellohost-8hql.onrender.com/auth"
         }}
     exam()
-    </script>
+</script>
 </body>
 </html>
