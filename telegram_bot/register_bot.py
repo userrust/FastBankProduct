@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 import httpx
-from database_register import init_db, exam_user_chat_id
+from .database_register import init_db, exam_user_chat_id
 
 API_TOKEN = '7813157064:AAFxB7O2oxbxCNY8RTEgaVpdP0GH_H0b7Bs'  # Замените на токен вашего бота
 
