@@ -4,7 +4,8 @@ from sqlalchemy import Column, String, Integer, select, Float
 import random
 
 engine = create_async_engine(
-    "sqlite+aiosqlite:///D:\Пользователи\Андрюша\Програмирование\FastBank\FastBanck/FastBank.db")
+        r"sqlite+aiosqlite:///FastBank.db"
+)
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
 

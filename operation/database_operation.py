@@ -4,9 +4,8 @@ from sqlalchemy.orm import DeclarativeBase
 import asyncio
 
 engine = create_async_engine(
-    r"sqlite+aiosqlite:///D:/Пользователи/Андрюша/Програмирование/FastBank/FastBanck/FastBank.db"
+        r"sqlite+aiosqlite:///FastBank.db"
 )
-
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
 
