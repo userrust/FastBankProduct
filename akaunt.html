@@ -1840,7 +1840,7 @@
                 return;
             }
 
-            const response = await fetch("https://hellohost-8hql.onrender.com/app/translations_chet", {
+            const response = await fetch("https://hellohost-8hql.onrender.com/apps/translations_chet", {
                 method: "POST",
                 headers: {"Accept": "application/json", "Content-Type": "application/json"},
                 body: JSON.stringify({
@@ -2971,7 +2971,7 @@
             if (!user_id) return;
 
             try {
-                const response = await fetch("https://hellohost-8hql.onrender.com/app/new_chet", {
+                const response = await fetch("https://hellohost-8hql.onrender.com/apps/new_chet", {
                     method: "POST",
                     headers: {"Accept": "application/json", "Content-Type": "application/json"},
                     body: JSON.stringify({
