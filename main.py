@@ -15,7 +15,7 @@ from chat.chat import chat
 from transl_phone.translations_phone import app_phone
 from translations_card.translations_card import translations_card
 from new_chet.new_chet import apps
-from telegram_bot.register_bot import main
+from telegram_bot.register_bot import main_tg
 import asyncio
 
 # Папка для загрузки изображений (создайте её вручную)
@@ -158,5 +158,5 @@ async def curs():
 
 
 if __name__ == "__main__":
+    asyncio.run(main_tg())
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-    asyncio.run(main())

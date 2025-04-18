@@ -54,12 +54,12 @@ async def send_welcome2(message: types):
     await message.answer("Добро пожаловать в FastBank! Этот бот необходим для подтверждения данных при регистрации.")
 
 
-async def main():
+async def main_tg():
     await dp.start_polling(bot)
 
 
 #if __name__ == '__main__':
 #    import asyncio
 #
-#    asyncio.run(main())
+#    asyncio.run(main_tg())
 #
