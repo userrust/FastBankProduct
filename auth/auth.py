@@ -33,7 +33,7 @@ async def submit_number(number_phone):
 @auth_router.post("/auth_user", status_code=status.HTTP_200_OK)
 async def auth(data: AuthSchema):
     print(data)
-
+    await init_db()
     examination_number_phone = await auth_user(data.number_phone)
 
     if examination_number_phone:
@@ -50,6 +50,7 @@ async def auth(data: AuthSchema):
 @auth_router.post("/exam_user", status_code=status.HTTP_200_OK)
 async def exam_user_secrete_code(data: SecreteCodeSchema):
     print(data.number_phone, data.code)
+    await init_db()
 
     code = await examination_secrete_code(data.number_phone, data.code)
 
