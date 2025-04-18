@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поддержка | Банк Онлайн</title>
+    <style>
+        :root {
+            --primary: #4f8ff8;
+            --primary-light: #e8f0fe;
+            --primary-extra-light: #f5f9ff;
+            --secondary: #5c6bc0;
+            --dark: #3c4043;
+            --light: #ffffff;
+            --light-gray: #ffffff;
+            --gray: #e0e0e0;
+            --text-gray: #5f6368;
+            --accent: #34a853;
+            --danger: #ea4335;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-extra-light);
+            color: var(--dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            background: var(--light);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-header {
+            background: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 10px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .chat-title {
+            font-size: 1.3rem;
+            font-weight: 200;
+            color: #132bb4;
+        }
+
+        .chat-status {
+            font-size: 0.85rem;
+            font-weight: 400;
+            opacity: 0.9;
+            color: var(--accent);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: var(--bg-color);
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeIn 0.2s ease-out;
+            word-wrap: break-word;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.received {
+            align-self: flex-start;
+            background: white;
+            border-bottom-left-radius: 4px;
+            color: var(--text-color);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .message.received.support {
+            background: #f1f8fe;
+            border-left: 3px solid var(--primary);
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 4px;
+            text-align: right;
+            color: inherit;
+            font-weight: 400;
+        }
+
+        .message.received .message-time {
+            color: var(--light-text);
+        }
+
+        .typing-indicator {
+            padding: 0 16px;
+            font-size: 0.85rem;
+            color: var(--light-text);
+            height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-style: italic;
+        }
+
+        .typing-indicator.active {
+            opacity: 1;
+        }
+
+        .chat-input-area {
+            padding: 12px 16px;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .input-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .message-input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--text-color);
+            resize: none;
+            outline: none;
+            transition: all 0.2s;
+            max-height: 120px;
+            font-size: 0.95rem;
+        }
+
+        .message-input:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+        }
+
+        .message-input::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .send-button {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #3367d6;
+            border: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-button:hover {
+            background: #3367d6;
+        }
+
+        .send-button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Стили для скроллбара */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Уведомление о конфиденциальности */
+        .privacy-notice {
+            font-size: 0.75rem;
+            color: gray;
+            text-align: center;
+            padding: 8px 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        #str {
+            color: black;
+            margin-top: -10px;
+            font-size: 32px;
+            cursor: pointer;
+            text-align: center;       /* Горизонтальное выравнивание по центру */
+            display: flex;            /* Для вертикального выравнивания */
+            align-items: center;      /* Вертикальное выравнивание по центру */
+            justify-content: center;  /* Горизонтальное выравнивание внутри flex-контейнера */
+            height: 100%;             /* Чтобы flex-выравнивание работало, нужна высота */
+        }
+    </style>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-header">
+        <div id="str" onclick="cli()">←</div>
+        <script>
+            function cli(){
+                window.location.href = 'http://192.168.1.63:8000/home'
+            }
+        </script>
+        <div class="logo-container">
+            <img src="https://avatars.mds.yandex.net/i?id=0ef6a458b81d8d25ad5bb535ae554682_l-5261679-images-thumbs&n=13"
+                 alt="Логотип" class="logo-img">
+            <div class="chat-title">Поддержка</div>
+        </div>
+        <div class="chat-status">Всегда онлайн</div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+        <!-- Сообщения будут добавляться здесь -->
+    </div>
+
+    <div class="chat-input-area">
+        <div class="input-container">
+            <textarea placeholder="Введите ваше сообщение..." id="input" class="message-input"></textarea>
+            <button class="send-button" onclick="sendMessage()" id="but">
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="privacy-notice">
+        Все сообщения защищены end-to-end шифрованием
+    </div>
+</div>
+
+<script>
+    // Загрузка данных пользователя
+    async function loadUserData() {
+        const user_id = localStorage.getItem("user_id");
+        console.log(user_id);
+
+        try {
+            const response = await fetch("http://192.168.1.63:8000/chat/info_chat", {
+                method: "POST",
+                headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                body: JSON.stringify({
+                    user_id: user_id
+                })
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            // Проверяем, что data является массивом
+            if (Array.isArray(data)) {
+                // Проходим по массиву с шагом 2 (вопрос → ответ)
+                for (let i = 0; i < data.length; i += 2) {
+                    const question = data[i];
+                    const answer = data[i + 1];
+
+                    // Добавляем вопрос (если он есть)
+                    if (question) {
+                        addMessage(question, 'sent');
+                    }
+
+                    // Добавляем ответ (если он есть)
+                    if (answer) {
+                        addMessage(answer, 'received support');
+                    }
+                }
+            }
+
+            // Остальной код (загрузка данных пользователя)
+            const name = localStorage.getItem("name") || "Иван";
+            const frame = localStorage.getItem("frame") || "Иванович";
+            const two_name = localStorage.getItem("two_name") || "Иванов";
+            const p = localStorage.getItem("pjoto_user");
+
+            if (p) {
+                // Код для загрузки фото пользователя
+            }
+        } catch (error) {
+            console.error("Ошибка при загрузке данных пользователя:", error);
+        }
+    }
+
+    // Функция добавления сообщения
+    function addMessage(text, sender, time = null, messageId = null) {
+        if (!text.trim()) return;
+
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender.split(' ')[0]);
+        if (sender.includes('support')) {
+            messageDiv.classList.add('support');
+        }
+
+        // Добавляем ID если он есть
+        if (messageId) {
+            messageDiv.id = messageId;
+        }
+
+        const messageText = document.createElement('div');
+        messageText.textContent = text;
+
+        const messageTime = document.createElement('div');
+        messageTime.classList.add('message-time');
+        messageTime.textContent = time || getCurrentTime();
+
+        messageDiv.appendChild(messageText);
+        messageDiv.appendChild(messageTime);
+
+        document.getElementById('chatMessages').appendChild(messageDiv);
+        document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+
+        messageDiv.style.animation = 'fadeIn 0.2s ease-out';
+
+        return messageDiv;
+    }
+
+    // Получение текущего времени
+    function getCurrentTime() {
+        const now = new Date();
+        return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+    }
+
+    // Отправка сообщения
+    // Отправка сообщения
+    async function sendMessage() {
+        const input = document.getElementById("input");
+        const text = input.value.trim();
+        const but = document.getElementById("but");
+
+        if (!text) {
+            return;
+        }
+
+        const user_id = localStorage.getItem("user_id");
+
+        but.disabled = true
+
+        // Очищаем поле ввода
+        input.value = '';
+
+        // Добавляем сообщение пользователя в чат
+        addMessage(text, 'sent');
+
+        // Добавляем временное сообщение "Мы работаем над запросом..."
+        const tempMessageId = 'temp-' + Date.now();
+        addMessage("Мы работаем над вашим запросом...", 'received support', null, tempMessageId);
+
+        try {
+            const response = await fetch("http://192.168.1.63:8000/chat/user_info_chat", {
+                method: "POST",
+                headers: {"Accept": "application/json", "Content-Type": "application/json"},
+                body: JSON.stringify({
+                    user_id: user_id,
+                    text: text
+                })
+            });
+
+            const data = await response.json();
+            console.log("Ответ сервера:", data);
+
+            // Удаляем временное сообщение
+            const tempMessage = document.getElementById(tempMessageId);
+            if (tempMessage) {
+                tempMessage.remove();
+            }
+
+            // Добавляем реальный ответ от сервера
+            if (data) {
+
+                but.disabled = false
+
+                // Если сервер возвращает объект с полем message
+                if (data.message) {
+                    addMessage(data.message, 'received support');
+                }
+                // Если сервер возвращает просто текст
+                else if (typeof data === 'string') {
+                    addMessage(data, 'received support');
+                }
+                // Если не удалось распознать ответ
+                else {
+
+                    but.disabled = false
+
+                    simulateSupportReply(text);
+                }
+            } else {
+
+                but.disabled = false
+
+                simulateSupportReply(text);
+            }
+        } catch (error) {
+            console.error("Ошибка при отправке сообщения:", error);
+            but.disabled = false
+
+            // Удаляем временное сообщение
+            const tempMessage = document.getElementById(tempMessageId);
+            if (tempMessage) {
+                tempMessage.remove();
+            }
+
+            // Добавляем сообщение об ошибке
+            addMessage("Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.", 'received support');
+        }
+    }
+    // Имитация ответа поддержки
+    function simulateSupportReply(userMessage) {
+        const commonReplies = {
+            "sms": "Проблемы с SMS-кодами могут быть связаны с оператором связи. Проверьте баланс и возможность приема SMS.",
+            "карт": "Для разблокировки карты вам необходимо позвонить по номеру 900 с вашего телефона, привязанного к карте.",
+            "приложен": "Попробуйте обновить приложение до последней версии. Если проблема сохраняется, удалите и установите приложение заново.",
+            "перевод": "Максимальная сумма перевода между своими счетами не ограничена. Для переводов другим лицам лимит 600 000 ₽ в сутки.",
+            "парол": "Вы можете сменить пароль в настройках профиля в мобильном приложении или через интернет-банк.",
+            "уведомлен": "Для подключения уведомлений перейдите в раздел 'Настройки' -> 'Уведомления' и выберите нужные опции."
+        };
+
+        let reply = "Благодарим за обращение. Мы уже работаем над вашим запросом. Обычно решение занимает 1-2 рабочих дня.";
+
+        // Поиск ключевых слов в сообщении пользователя
+        for (const [keyword, response] of Object.entries(commonReplies)) {
+            if (userMessage.toLowerCase().includes(keyword)) {
+                reply = response;
+                break;
+            }
+        }
+
+        addMessage(reply, 'received support');
+    }
+
+    // Обработчики событий
+    document.querySelector('.send-button').addEventListener('click', sendMessage);
+
+    document.querySelector('.message-input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    // Загружаем данные пользователя при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function () {
+        loadUserData();
+
+        // Добавляем приветственное сообщение от поддержки
+        setTimeout(() => {
+            addMessage("Здравствуйте! Вас приветствует служба поддержки FastBank. Чем могу помочь?", 'received support');
+        }, 500);
+    });
+</script>
+</body>
+</html>

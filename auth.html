@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма входа</title>
+    <script>
+        const user_id = localStorage.getItem("user_id")
+        console.log(user_id)
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3; /* Синий цвет текста */
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            max-width: 50px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 330px;
+            height: 290px;
+            text-align: center;
+            margin-top: 100px; /* Отступ для логотипа */
+            margin-top: 10px;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 768px) {
+            .form-container {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 310px;
+                height: 290px;
+                text-align: center;
+                margin-top: 100px; /* Отступ для логотипа */
+                margin-top: -5px;
+
+            }
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .phone-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .phone-input select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .phone-input input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            background-color: #f9f9f9;
+        }
+
+        .continue-button {
+            background-color: #FFDD2D;
+            color: #1a1818;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .continue-button:hover {
+            background-color: #dab709;
+        }
+
+        h1 {
+            margin-top: 35px;
+        }
+
+        p {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="#" class="logo">
+            <img src="https://avatars.mds.yandex.net/i?id=0ef6a458b81d8d25ad5bb535ae554682_l-5261679-images-thumbs&n=13"
+                 alt="Логотип">
+            FastBank ID
+        </a>
+    </div>
+</header>
+<div class="form-container">
+    <h1>Войти в аккаунт</h1>
+    <p>Введите номер телефона для быстрого входа в аккаунт</p>
+    <div class="phone-input">
+        <select>
+            <option>+7</option>
+            <!-- Добавьте другие коды стран при необходимости -->
+        </select>
+        <input type="text" placeholder="Номер телефона" id="number_phone">
+    </div>
+    <button class="continue-button" onclick="login()">Продолжить</button>
+    <br><br>
+    <div id="error"></div>
+</div>
+
+<script>
+    async function login() {
+        const number_phone = document.getElementById("number_phone").value;
+        const result_number_phone = "+7" + number_phone
+        console.log(result_number_phone)
+
+        const response = await fetch("http://192.168.1.63:8000/v/auth_user", {
+            method: "POST",
+            headers: {"Accept": "application/json", "Content-Type": "application/json"},
+            body: JSON.stringify({
+                number_phone: String(result_number_phone)
+            })
+        })
+        data = await response.json()
+        if (response.ok) {
+            localStorage.setItem('phone', result_number_phone);
+            window.location.href = "http://192.168.1.63:8000/exam"
+        } else {
+            document.getElementById("error").textContent = data.detail;
+        }
+    }
+</script>
+</body>
+</html>
