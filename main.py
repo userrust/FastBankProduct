@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException, UploadFile, File, status, Form
 from models import ExaminationSchema, HomeSchema, UserID
 from database import info_user_for_home, init_db, info_user_for_home_user_id, save_photo_user, search_user_id
@@ -14,6 +15,8 @@ from chat.chat import chat
 from transl_phone.translations_phone import app_phone
 from translations_card.translations_card import translations_card
 from new_chet.new_chet import apps
+from telegram_bot.register_bot import main
+import asyncio
 
 # Папка для загрузки изображений (создайте её вручную)
 UPLOAD_DIR = "uploads"
@@ -152,3 +155,8 @@ async def curs():
         "eur":eur,
         "chy":cny
     }
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    asyncio.run(main())

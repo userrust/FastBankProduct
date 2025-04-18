@@ -49,11 +49,17 @@ async def send_welcome(message: types.Message, command: Command):
         await message.answer("Вы не можете создать второй аккаунт")
 
 
+@dp.message(Command("hello"))
+async def send_welcome2(message: types):
+    await message.answer("Добро пожаловать в FastBank! Этот бот необходим для подтверждения данных при регистрации.")
+
+
 async def main():
     await dp.start_polling(bot)
 
 
-if __name__ == '__main__':
-    import asyncio
-
-    asyncio.run(main())
+#if __name__ == '__main__':
+#    import asyncio
+#
+#    asyncio.run(main())
+#
