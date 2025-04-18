@@ -164,10 +164,7 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT",
                               8000))  # Получаем порт из переменной окружения или используем 8000 для локального запуска
 
-    # Запускаем Telegram бот в отдельном потоке
-    import threading
-
-    threading.Thread(target=asyncio.run, args=(main_tg(),), daemon=True).start()
+    asyncio.run(main_tg())
 
     # Запускаем FastAPI
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)  # На Render reload должен быть False
