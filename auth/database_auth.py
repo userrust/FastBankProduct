@@ -3,7 +3,7 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import select, Column, Integer, String, Float
 
 engine = create_async_engine(
-    r"sqlite+aiosqlite:///../FastBank.db"
+    r"sqlite+aiosqlite:///FastBank.db"
 )
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
