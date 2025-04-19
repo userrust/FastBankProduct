@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, status
-from database_new_chet import init_db, examination_chet, rename_name_chet, delete_chet_user, translations_chet_user
+from database_new_chet import init_db, examination_chet, rename_name_chet, delete_chet_user, translations_chet_user, info
 from models_new_chet import NewChetSchema, RenameSchema, DeleteChetSchema, TranslationChetUser
 from message_user import send_message_user
 
@@ -26,6 +26,9 @@ async def new_chet_user(data: NewChetSchema):
 @apps.post("/rename_chet")
 async def rename_chet(data: RenameSchema):
     print(data)
+    await info()
+    a = await info()
+    print(a)
     await rename_name_chet(data.user_id, data.past_chet_name, data.new_name_chet)
     return True
 

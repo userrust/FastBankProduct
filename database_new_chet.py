@@ -134,6 +134,14 @@ async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str
             )
 
 
+async def info():
+    async with session_database() as session:
+        search_user_id = await session.execute(select(Users).where(Users.id == 1))
+        result_search_user_id = search_user_id.scalar()
+
+        return result_search_user_id.chet_two
+
+
 async def delete_chet_user(user_id: int, name_chet: str):
     async with session_database() as session:
         search_user_id = await session.execute(select(Users).where(Users.id == user_id))
