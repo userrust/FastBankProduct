@@ -156,7 +156,7 @@ async def curs():
         "chy":cny
     }
 
-
+'''
 if __name__ == "__main__":
     import os
 
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     # Запускаем FastAPI
     uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
 
-'''
+
 # В самом конце файла замените блок if __name__ == "__main__" на это:
 if __name__ == "__main__":
     import os
