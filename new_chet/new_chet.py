@@ -36,7 +36,7 @@ async def delete_chet(data: DeleteChetSchema):
 async def translations_chet(data: TranslationChetUser):
     print(data)
     try:
-
+        await init_db()
         tr = await translations_chet_user(int(data.user_id), int(data.money), data.name_chet_two, data.name_chet_one)
 
         send_message_user(tr[0], f"Перевод на {data.money} ₽, счет RUB. Баланс {tr[1]} ₽")

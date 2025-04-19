@@ -1,9 +1,14 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import select, String, Column, Integer, Float
+import os
+from pathlib import Path
+
+# Получаем абсолютный путь к директории с базой данных
+DB_PATH = Path(__file__).parent / "FastBank.db"
 
 engine = create_async_engine(
-    r"sqlite+aiosqlite:///../FastBank.db"
+    f"sqlite+aiosqlite:///{DB_PATH}"
 )
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
