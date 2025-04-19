@@ -16,3 +16,4 @@ class UserID(BaseModel):
 class PhotoUser(BaseModel):
     user_id: int
     photo: str
+

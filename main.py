@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, UploadFile, File, status, Form
 from models import ExaminationSchema, HomeSchema, UserID
-from database import info_user_for_home, init_db, info_user_for_home_user_id, save_photo_user, search_user_id
+from database import info_user_for_home, init_db, info_user_for_home_user_id, save_photo_user, search_user_id, user_info
 from operation.operation import operation
 from data_chet.data_chet import data_chet
 from fastapi.middleware.cors import CORSMiddleware
@@ -108,6 +108,12 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
     except Exception as e:
         return HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ошибка. Попробуйте поже")
+
+
+@app.get("/info_user")
+async def user_info():
+    info = await user_info()
+    return info
 
 
 @app.get("/home")

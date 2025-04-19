@@ -5,7 +5,7 @@ from sqlalchemy import Column, Integer, String, Float
 import asyncio
 
 engine = create_async_engine(
-        r"sqlite+aiosqlite:///FastBank.db"
+    r"sqlite+aiosqlite:///FastBank.db"
 )
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
@@ -163,3 +163,19 @@ async def search_user_id(user_id: int):
 
         if photos:
             return photo_names
+
+
+async def user_info():
+    async with session_database() as session:
+        info = await session.execute(select(Users.id))
+        res = info.scalars().all()
+
+        arr = []
+
+        for i in res:
+            arr.append(i)
+        print(max(arr))
+        return max(arr)
+
+asyncio.run(init_db())
+asyncio.run(user_info())
