@@ -3,6 +3,7 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import select, String, Column, Integer, Float
 import os
 from pathlib import Path
+
 '''
 # Получаем абсолютный путь к директории с базой данных
 DB_PATH = Path(__file__).parent / "FastBank.db"
@@ -10,7 +11,6 @@ DB_PATH = Path(__file__).parent / "FastBank.db"
 engine = create_async_engine(
     f"sqlite+aiosqlite:///{DB_PATH}"
 )'''
-
 
 engine = create_async_engine(
     f"sqlite+aiosqlite:///FastBank.db"
@@ -89,33 +89,49 @@ async def examination_chet(user_id: str, name_chet: str):
 
 async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str):
     async with session_database() as session:
-        search_user_id = await session.execute(select(Users).where(Users.id == user_id))
-        result_search_user_id = search_user_id.scalar()
-
-        if result_search_user_id.chet_one == past_name_chet:
-            print("1 Chet")
-            result_search_user_id.chet_one = new_name_chet
-
-        elif result_search_user_id.chet_two == past_name_chet:
-            print("2 Chet")
-            result_search_user_id.chet_two = new_name_chet
-
-        elif result_search_user_id.chet_three == past_name_chet:
-            print("3 Chet")
-            result_search_user_id.chet_three = new_name_chet
-
         try:
+            # Поиск пользователя
+            search_user_id = await session.execute(select(Users).where(Users.id == user_id))
+            result_search_user_id = search_user_id.scalar()
+
+            # Проверка существования пользователя
+            if result_search_user_id is None:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail=f"Пользователь с ID {user_id} не найден"
+                )
+
+            # Проверка и обновление нужного счета
+            updated = False
+            if result_search_user_id.chet_one == past_name_chet:
+                result_search_user_id.chet_one = new_name_chet
+                updated = True
+            elif result_search_user_id.chet_two == past_name_chet:
+                result_search_user_id.chet_two = new_name_chet
+                updated = True
+            elif result_search_user_id.chet_three == past_name_chet:
+                result_search_user_id.chet_three = new_name_chet
+                updated = True
+
+            if not updated:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"Счет с именем '{past_name_chet}' не найден"
+                )
+
+            # Явное добавление объекта в сессию (хотя это часто и не требуется)
             session.add(result_search_user_id)
+
+            # Сохранение изменений
             await session.commit()
-            print("Данные успешно сохранены!")
+            return {"status":"success", "message":"Имя счета успешно изменено"}
+
         except Exception as e:
-            await session.rollback()  # Откатываем изменения при ошибке
-            print(f"Ошибка при сохранении: {e}")
+            await session.rollback()
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail=f"Не удалось обновить данные: {str(e)}"
+                detail=f"Ошибка при обновлении: {str(e)}"
             )
-        print(result_search_user_id.chet_two)
 
 
 async def delete_chet_user(user_id: int, name_chet: str):
