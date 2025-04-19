@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI, HTTPException, UploadFile, File, status, Form
 from models import ExaminationSchema, HomeSchema, UserID
 from database import info_user_for_home, init_db, info_user_for_home_user_id, save_photo_user, search_user_id
@@ -14,9 +13,7 @@ from auth.auth import auth_router
 from chat.chat import chat
 from transl_phone.translations_phone import app_phone
 from translations_card.translations_card import translations_card
-from new_chet.new_chet import apps
-from telegram_bot.register_bot import main_tg
-import asyncio
+from FastBankProduct.new_chet import apps
 
 # Папка для загрузки изображений (создайте её вручную)
 UPLOAD_DIR = "uploads"

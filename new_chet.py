@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Body, HTTPException, status
-from .database_new_chet import init_db, examination_chet, rename_name_chet, delete_chet_user, translations_chet_user
-from .models_new_chet import NewChetSchema, RenameSchema, DeleteChetSchema, TranslationChetUser
-from .message_user import send_message_user
-import uvicorn
+from fastapi import APIRouter, HTTPException, status
+from database_new_chet import init_db, examination_chet, rename_name_chet, delete_chet_user, translations_chet_user
+from models_new_chet import NewChetSchema, RenameSchema, DeleteChetSchema, TranslationChetUser
+from message_user import send_message_user
 
 apps = APIRouter()
 
