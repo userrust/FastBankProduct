@@ -1,60 +1,74 @@
+import asyncio
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import select, String, Column, Integer, Float
-import os
-from pathlib import Path
-import asyncio
+from sqlalchemy import select, String, Column, Integer
 
-'''
-# Получаем абсолютный путь к директории с базой данных
-DB_PATH = Path(__file__).parent / "FastBank.db"
-
-engine = create_async_engine(
-    f"sqlite+aiosqlite:///{DB_PATH}"
-)'''
-
-engine = create_async_engine(
-    f"sqlite+aiosqlite:///FastBank.db"
-)
-
-session_database = async_sessionmaker(engine, expire_on_commit=False)
+DATABASE_URL = "postgresql+asyncpg://fastbankpost_user:eU2NDKOVu8cHT3Ke61tLWITQ7CTzz0IG@dpg-d01lln3e5dus73bau910-a.frankfurt-postgres.render.com:5432/fastbankpost"
 
 
 class Base(DeclarativeBase):
     pass
 
 
-class Users(Base):
+class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    sur_name = Column(String)
-    middle_name = Column(String)
-    number_phone = Column(String)
-    chet_one = Column(String)
-    chet_two = Column(String)
-    chet_three = Column(String)
-    val_chet_one = Column(Float)
-    val_chet_two = Column(Float)
-    val_chet_three = Column(Float)
-    data_chet = Column(String)
-    chat_id = Column(String)
+    name = Column(String(50))
+    email = Column(String(100), unique=True)
+
+
+engine = create_async_engine(DATABASE_URL, echo=True)
+AsyncSessionLocal = async_sessionmaker(bind=engine, expire_on_commit=False)
 
 
 async def init_db():
-    async with engine.begin() as session:
-        await session.run_sync(Base.metadata.create_all)
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 
-async def info():
-    async with session_database() as session:
-        search_user_id = await session.execute(select(Users).where(Users.id == 1))
-        result_search_user_id = search_user_id.scalar()
+async def add_user(name: str, email: str):
+    try:
+        async with AsyncSessionLocal() as session:
+            new_user = User(name=name, email=email)
+            session.add(new_user)
+            await session.commit()
+            print(f"Добавлен пользователь: {name} ({email})")
+    except Exception as e:
+        print(f"Ошибка: {e}")
 
-        return result_search_user_id.chet_two
+
+async def add_multiple_users():
+    users = [
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5")
+    ]
+
+    for name, email in users:
+        await add_user(name, email)
 
 
-asyncio.run(init_db())
+async def count_users() -> int:
+    try:
+        async with AsyncSessionLocal() as session:
+            result = await session.execute(select((User)))
+            count = result.scalars().all()
 
-a = asyncio.run(info())
-print(a)
+            print(f"Всего пользователей в базе: {count}")
+            return count
+    except Exception as e:
+        print(f"Ошибка при подсчете пользователей: {e}")
+        return 0
+
+
+async def main():
+    await init_db()
+    await add_multiple_users()  # Добавляем несколько пользователей
+    await engine.dispose()  # Закрываем соединение после всех операций
+    await count_users()
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

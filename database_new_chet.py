@@ -40,23 +40,32 @@ class Users(Base):
     chat_id = Column(String)
 
 
+class RegisterBot(Base):
+    __tablename__ = "registerBot"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    sur_name = Column(String)
+    middle_name = Column(String)
+    number_phone = Column(String)
+    secrete_key_session = Column(String)
+
+
 async def init_db():
-    try:
-        # Вариант 1: Использование run_sync с явным соединением
-        async with engine.connect() as conn:
-            await conn.run_sync(Base.metadata.create_all)
-            await conn.commit()  # Явное подтверждение изменений
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
-        # Вариант 2: Альтернативный способ через begin
-        # async with engine.begin() as conn:
-        #     await conn.run_sync(Base.metadata.create_all)
 
-        print("Таблицы успешно созданы")
-        return True
-    except Exception as e:
-        print(f"Ошибка при создании таблиц: {e}")
-        return False
+import sqlite3
 
+
+def test():
+    con = sqlite3.connect("FastBank.db")
+    cur = con.cursor()
+
+    cur.execute("INSERT INTO registerBot(name, sur_name, middle_name, number_phone, number_phone) VALUE(?, ?, ?, ?, ?)",
+                ("1", "1", "1", "1", "1"))
+    con.commit()
+    con.close()
 
 async def examination_chet(user_id: str, name_chet: str):
     async with session_database() as session:
@@ -163,6 +172,7 @@ async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Внутренняя ошибка сервера: {str(e)}"
             )
+
 
 async def info():
     async with session_database() as session:
