@@ -55,17 +55,14 @@ async def init_db():
         await conn.run_sync(Base.metadata.create_all)
 
 
-import sqlite3
+async def test():
+    async with session_database() as session:
+        new = RegisterBot(
+            name="d", sur_name="d", middle_name="l", number_phone="d", secrete_key_session="d"
+        )
+        session.add(new)
+        await session.commit()
 
-
-def test():
-    con = sqlite3.connect("FastBank.db")
-    cur = con.cursor()
-
-    cur.execute("INSERT INTO registerBot(name, sur_name, middle_name, number_phone, number_phone) VALUES (?, ?, ?, ?, ?)",
-                ("1", "1", "1", "1", "1"))
-    con.commit()
-    con.close()
 
 async def examination_chet(user_id: str, name_chet: str):
     async with session_database() as session:
