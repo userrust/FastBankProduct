@@ -27,10 +27,6 @@ async def new_chet_user(data: NewChetSchema):
 async def rename_chet(data: RenameSchema):
     print(data)
     await init_db()  # Инициализация БД при старте
-    await test()
-    import time
-    time.sleep(0.1)
-
     a = await info()
     print(a)
     q = await rename_name_chet(data.user_id, data.past_chet_name, data.new_name_chet)
