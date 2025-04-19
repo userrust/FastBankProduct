@@ -176,6 +176,3 @@ async def user_info():
             arr.append(i)
         print(max(arr))
         return max(arr)
-
-asyncio.run(init_db())
-asyncio.run(user_info())

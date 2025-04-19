@@ -1,10 +1,15 @@
 import flet as ft
+import requests
 
 
 def main(page: ft.Page):
-    #a = ft.Container(width=50, height=250, bgcolor="red")
-    a = ft.Text()
-    page.vertical_alignment=ft.MainAxisAlignment.CENTER
+    # a = ft.Container(width=50, height=250, bgcolor="red")
+
+    req = requests.get("https://hellohost-8hql.onrender.com/info_user")
+    print(req.text)
+    a = ft.Text(f"{req.text}", size=50)
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+
     page.add(
         ft.Row(
             [

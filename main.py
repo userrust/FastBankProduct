@@ -112,6 +112,7 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
 
 @app.get("/info_user")
 async def user_info():
+    await init_db()
     info = await user_info()
     return info
 
