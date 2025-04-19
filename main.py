@@ -114,6 +114,7 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
 async def user_info():
     await init_db()
     info = await user_info()
+    print(info)
     return info
 
 

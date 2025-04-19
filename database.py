@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import select, delete
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, func
 import asyncio
 
 engine = create_async_engine(
@@ -167,12 +167,8 @@ async def search_user_id(user_id: int):
 
 async def user_info():
     async with session_database() as session:
-        info = await session.execute(select(Users.id))
-        res = info.scalars().all()
+        result = await session.execute(select(func.max(Users.id)))
+        res = result.scalar()
 
-        arr = []
-
-        for i in res:
-            arr.append(i)
-        print(max(arr))
-        return max(arr)
+        print(max(res))
+        return max(res)
