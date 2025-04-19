@@ -35,8 +35,15 @@ class Users(Base):
 
 
 async def init_db():
-    async with engine.begin() as session:
-        await session.run_sync(Base.metadata.create_all)
+    async with async_engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+        print("Таблицы созданы успешно")
+
+        # Проверка наличия тестовых данных
+        async with session_database() as session:
+            result = await session.execute(select(Users))
+            if not result.scalars().first():
+                print("Внимание: таблица users пустая!")
 
 
 async def examination_chet(user_id: str, name_chet: str):
@@ -117,62 +124,66 @@ async def delete_chet_user(user_id: int, name_chet: str):
         session.add(result_search_user_id)
         await session.commit()
 
+
 from fastapi import HTTPException, status
 
-async def translations_chet_user(user_id: int, money: int, name_chet_payee: str, name_chet_payment: str):
+
+async def translations_chet_user(user_id: int, money: float, name_chet_payee: str, name_chet_payment: str):
     async with session_database() as session:
-        search = await session.execute(select(Users).where(Users.id == user_id))
-        res = search.scalar()
-
-        chet_one = res.chet_one
-        chet_two = res.chet_two
-        chet_three = res.chet_three
-        chat_id = res.chat_id
-        balance = res.val_chet_one
-        print(chet_one, name_chet_payment)
         try:
-            if chet_one == name_chet_payment and chet_two == name_chet_payee:
-                if res.val_chet_one < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_one -= money
-                res.val_chet_two += money
-                await session.commit()
-                return [chat_id, balance]
-            elif chet_one == name_chet_payment and chet_three == name_chet_payee:
-                if res.val_chet_one < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_one -= money
-                res.val_chet_three += money
-                await session.commit()
-                return [chat_id, balance]
-            if chet_two == name_chet_payment and chet_one == name_chet_payee:
-                if res.val_chet_two < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_two -= money
-                res.val_chet_one += money
-                await session.commit()
-                return [chat_id, balance]
-            elif chet_two == name_chet_payment and chet_three == name_chet_payee:
-                if res.val_chet_two < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_two -= money
-                res.val_chet_three += money
-                await session.commit()
-                return [chat_id, balance]
+            user = await get_user_or_404(session, user_id)
 
-            if chet_three == name_chet_payment and chet_two == name_chet_payee:
-                if res.val_chet_three < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_three -= money
-                res.val_chet_two += money
-                await session.commit()
-                return [chat_id, balance]
-            elif chet_three == name_chet_payment and chet_one == name_chet_payee:
-                if res.val_chet_three < money:
-                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="На счете недостатосно средств")
-                res.val_chet_three -= money
-                res.val_chet_one += money
-                await session.commit()
-                return [chat_id, balance]
+            # Проверяем валидность суммы
+            if money <= 0:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Сумма перевода должна быть положительной"
+                )
+
+            # Определяем тип перевода
+            transfer_cases = {
+                (user.chet_one, user.chet_two):(user.val_chet_one, user.val_chet_two),
+                (user.chet_one, user.chet_three):(user.val_chet_one, user.val_chet_three),
+                (user.chet_two, user.chet_one):(user.val_chet_two, user.val_chet_one),
+                (user.chet_two, user.chet_three):(user.val_chet_two, user.val_chet_three),
+                (user.chet_three, user.chet_one):(user.val_chet_three, user.val_chet_one),
+                (user.chet_three, user.chet_two):(user.val_chet_three, user.val_chet_two),
+            }
+
+            source_balance, target_balance = transfer_cases.get(
+                (name_chet_payment, name_chet_payee),
+                (None, None)
+            )
+
+            if source_balance is None or target_balance is None:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Указанные счета не найдены"
+                )
+
+            if source_balance < money:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Недостаточно средств на счете"
+                )
+
+            # Выполняем перевод
+            source_balance -= money
+            target_balance += money
+
+            await session.commit()
+
+            return {
+                "chat_id":user.chat_id,
+                "balance":user.val_chet_one,
+                "message":"Перевод выполнен успешно"
+            }
+
+        except HTTPException:
+            raise
         except Exception as e:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=e)
+            logger.error(f"Ошибка в translations_chet_user: {e}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Внутренняя ошибка сервера"
+            )
