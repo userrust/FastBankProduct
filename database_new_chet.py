@@ -62,7 +62,7 @@ def test():
     con = sqlite3.connect("FastBank.db")
     cur = con.cursor()
 
-    cur.execute("INSERT INTO registerBot(name, sur_name, middle_name, number_phone, number_phone) VALUE(?, ?, ?, ?, ?)",
+    cur.execute("INSERT INTO registerBot(name, sur_name, middle_name, number_phone, number_phone) VALUES (?, ?, ?, ?, ?)",
                 ("1", "1", "1", "1", "1"))
     con.commit()
     con.close()
