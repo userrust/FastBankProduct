@@ -13,7 +13,7 @@ from auth.auth import auth_router
 from chat.chat import chat
 from transl_phone.translations_phone import app_phone
 from translations_card.translations_card import translations_card
-#from FastBankProduct.new_chet import apps
+# from FastBankProduct.new_chet import apps
 from new_chet import apps
 
 # Папка для загрузки изображений (создайте её вручную)
@@ -110,6 +110,23 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ошибка. Попробуйте поже")
 
 
+from pydantic import BaseModel
+
+
+class H(BaseModel):
+    text: str
+
+
+from test_database import init_db2, new
+
+
+@app.post("/test_info")
+async def f(d: H):
+    await init_db2()
+    await new(d.text)
+    return "OK"
+
+
 @app.get("/home")
 async def home():
     return FileResponse("akaunt.html")
@@ -153,6 +170,7 @@ async def curs():
         "eur":eur,
         "chy":cny
     }
+
 
 '''
 if __name__ == "__main__":
