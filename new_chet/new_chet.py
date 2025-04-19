@@ -13,7 +13,7 @@ async def on_startup():
         await init_db()  # Инициализация БД при старте
         print("БД YES")
     except Exception as e:
-        print(e)
+        print("Error", e)
 
 
 @apps.post("/new_chet")
