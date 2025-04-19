@@ -1,19 +1,14 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import select, String, Column, Integer, Float
-from pydantic import BaseModel
-from fastapi import FastAPI
+from sqlalchemy import select, String, Column, Integer
 import os
 
-app = FastAPI()
-
 # Настройки подключения к PostgreSQL (лучше вынести в переменные окружения)
-POSTGRES_USER = os.getenv("fastbankpost_user", "postgres")
+POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "eU2NDKOVu8cHT3Ke61tLWITQ7CTzz0IG")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST",
-                          "postgresql://fastbankpost_user:eU2NDKOVu8cHT3Ke61tLWITQ7CTzz0IG@dpg-d01lln3e5dus73bau910-a/fastbankpost")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "dpg-d01lln3e5dus73bau910-a")  # только хост
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
-POSTGRES_DB = os.getenv("POSTGRES_DB", "fastbankpost_user")
+POSTGRES_DB = os.getenv("POSTGRES_DB", "fastbankpost")
 
 # Строка подключения для PostgreSQL
 DATABASE_URL = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
@@ -25,7 +20,11 @@ engine = create_async_engine(
 )
 
 # Создаем фабрику сессий
-AsyncSessionLocal = async_sessionmaker(engine, expire_on_commit=False)
+AsyncSessionLocal = async_sessionmaker(
+    engine,
+    expire_on_commit=False,
+    class_=AsyncSession
+)
 
 
 class Base(DeclarativeBase):
@@ -34,18 +33,19 @@ class Base(DeclarativeBase):
 
 class Text(Base):
     __tablename__ = "texts"
-    id = Column(Integer, primary_key=True)
-    text = Column(String)
+    id = Column(Integer, primary_key=True, index=True)
+    text = Column(String, nullable=False)
 
 
+# Инициализация БД
 async def init_db():
     """Инициализация базы данных (создание таблиц)"""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
 
-async def create_text(text: str) -> Text:
-    """Создание новой записи в БД"""
+# Создание нового текста
+async def create_text(text: str):
     async with AsyncSessionLocal() as session:
         new_text = Text(text=text)
         session.add(new_text)
