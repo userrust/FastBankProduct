@@ -110,6 +110,8 @@ async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str
             session.add(result_search_user_id)
             await session.commit()
 
+        print(result_search_user_id.chet_two)
+
 
 async def delete_chet_user(user_id: int, name_chet: str):
     async with session_database() as session:
