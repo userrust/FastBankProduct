@@ -117,14 +117,15 @@ class H(BaseModel):
     text: str
 
 
-from test_database import init_db2, new
+from test_database import create_text
 
 
 @app.post("/test_info")
 async def f(d: H):
-    await init_db2()
-    await new(d.text)
-    return "OK"
+    """Ваш эндпоинт с PostgreSQL"""
+    await init_db()  # Инициализация БД (если нужно)
+    text = await create_text(d.text)
+    return {"status":"OK", "id":text.id}
 
 
 @app.get("/home")
