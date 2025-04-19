@@ -170,5 +170,5 @@ async def user_info():
         result = await session.execute(select(func.max(Users.id)))
         res = result.scalar()
 
-        print(max(res))
-        return max(res)
+        print(res)
+        return res
