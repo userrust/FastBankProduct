@@ -157,16 +157,18 @@ async def curs():
     }
 
 
-# В самом конце файла замените блок if __name__ == "__main__" на это:
 if __name__ == "__main__":
     import os
 
-    port = int(os.environ.get("PORT",
-                              8000))
-    asyncio.run(main_tg())
+    port = int(os.environ.get("PORT", 8000))
+
+    # Запускаем бота в фоновом режиме
+    import threading
+
+    threading.Thread(target=asyncio.run, args=(main_tg(),), daemon=True).start()
 
     # Запускаем FastAPI
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)  # На Render reload должен быть False
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
 
 '''
 # В самом конце файла замените блок if __name__ == "__main__" на это:
