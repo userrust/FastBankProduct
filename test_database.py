@@ -4,11 +4,11 @@ from sqlalchemy import select, String, Column, Integer
 import os
 
 # Настройки подключения к PostgreSQL (лучше вынести в переменные окружения)
-POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "eU2NDKOVu8cHT3Ke61tLWITQ7CTzz0IG")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST", "dpg-d01lln3e5dus73bau910-a")  # только хост
-POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
-POSTGRES_DB = os.getenv("POSTGRES_DB", "fastbankpost")
+POSTGRES_USER = "fastbankpost_user"
+POSTGRES_PASSWORD = "eU2NDKOVu8cHT3Ke61tLWITQ7CTzz0IG"
+POSTGRES_HOST = "dpg-d01lln3e5dus73bau910-a"
+POSTGRES_PORT = "5432"
+POSTGRES_DB = "fastbankpost"
 
 # Строка подключения для PostgreSQL
 DATABASE_URL = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
