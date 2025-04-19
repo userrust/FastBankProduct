@@ -7,9 +7,17 @@ import uvicorn
 apps = APIRouter()
 
 
+@apps.on_event("startup")
+async def on_startup():
+    try:
+        await init_db()  # Инициализация БД при старте
+        print("БД YES")
+    except Exception as e:
+        print(e)
+
+
 @apps.post("/new_chet")
 async def new_chet_user(data: NewChetSchema):
-    await init_db()
     print(data.user_id)
     zap = await examination_chet(str(data.user_id), data.name_chet)
     print(zap)
@@ -19,14 +27,12 @@ async def new_chet_user(data: NewChetSchema):
 @apps.post("/rename_chet")
 async def rename_chet(data: RenameSchema):
     print(data)
-    await init_db()
     await rename_name_chet(data.user_id, data.past_chet_name, data.new_name_chet)
     return True
 
 
 @apps.post("/delete_chet")
 async def delete_chet(data: DeleteChetSchema):
-    await init_db()
     print(data)
     await delete_chet_user(data.user_id, data.name_delete_chet)
     return True
@@ -36,7 +42,6 @@ async def delete_chet(data: DeleteChetSchema):
 async def translations_chet(data: TranslationChetUser):
     print(data)
     try:
-        await init_db()
         tr = await translations_chet_user(int(data.user_id), int(data.money), data.name_chet_two, data.name_chet_one)
 
         send_message_user(tr[0], f"Перевод на {data.money} ₽, счет RUB. Баланс {tr[1]} ₽")

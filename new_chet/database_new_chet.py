@@ -10,6 +10,7 @@ DB_PATH = Path(__file__).parent / "FastBank.db"
 engine = create_async_engine(
     f"sqlite+aiosqlite:///{DB_PATH}"
 )
+
 session_database = async_sessionmaker(engine, expire_on_commit=False)
 
 
