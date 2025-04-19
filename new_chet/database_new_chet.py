@@ -117,13 +117,16 @@ async def delete_chet_user(user_id: int, name_chet: str):
         session.add(result_search_user_id)
         await session.commit()
 
+
 from fastapi import HTTPException, status
+
 
 async def translations_chet_user(user_id: int, money: int, name_chet_payee: str, name_chet_payment: str):
     async with session_database() as session:
+        print(user_id)
         search = await session.execute(select(Users).where(Users.id == user_id))
         res = search.scalar()
-
+        print(res)
         chet_one = res.chet_one
         chet_two = res.chet_two
         chet_three = res.chet_three
