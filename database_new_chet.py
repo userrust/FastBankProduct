@@ -57,6 +57,7 @@ async def init_db():
         print(f"Ошибка при создании таблиц: {e}")
         return False
 
+
 async def examination_chet(user_id: str, name_chet: str):
     async with session_database() as session:
         zap = await session.execute(select(Users).where(Users.id == user_id))
@@ -102,27 +103,37 @@ async def examination_chet(user_id: str, name_chet: str):
 async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str):
     async with session_database() as session:
         try:
-            # Поиск пользователя
-            search_user_id = await session.execute(select(Users).where(Users.id == user_id))
-            result_search_user_id = search_user_id.scalar()
+            # Проверка входных данных
+            if not new_name_chet or not isinstance(new_name_chet, str):
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Новое имя счета должно быть непустой строкой"
+                )
 
-            # Проверка существования пользователя
-            if result_search_user_id is None:
+            # Поиск пользователя
+            result = await session.execute(
+                select(Users)
+                .where(Users.id == user_id)
+                .with_for_update()  # Блокировка строки для изменения
+            )
+            user = result.scalar()
+
+            if user is None:
                 raise HTTPException(
                     status_code=status.HTTP_404_NOT_FOUND,
                     detail=f"Пользователь с ID {user_id} не найден"
                 )
 
-            # Проверка и обновление нужного счета
+            # Проверка и обновление
             updated = False
-            if result_search_user_id.chet_one == past_name_chet:
-                result_search_user_id.chet_one = new_name_chet
+            if user.chet_one == past_name_chet:
+                user.chet_one = new_name_chet
                 updated = True
-            elif result_search_user_id.chet_two == past_name_chet:
-                result_search_user_id.chet_two = new_name_chet
+            elif user.chet_two == past_name_chet:
+                user.chet_two = new_name_chet
                 updated = True
-            elif result_search_user_id.chet_three == past_name_chet:
-                result_search_user_id.chet_three = new_name_chet
+            elif user.chet_three == past_name_chet:
+                user.chet_three = new_name_chet
                 updated = True
 
             if not updated:
@@ -131,20 +142,27 @@ async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str
                     detail=f"Счет с именем '{past_name_chet}' не найден"
                 )
 
-            # Явное добавление объекта в сессию (хотя это часто и не требуется)
-            session.add(result_search_user_id)
-
-            # Сохранение изменений
+            # Не требуется явный add() для существующего объекта
             await session.commit()
-            return {"status":"success", "message":"Имя счета успешно изменено"}
 
+            # Обновляем объект в сессии
+            await session.refresh(user)
+
+            return {
+                "status":"success",
+                "message":"Имя счета успешно изменено",
+                "new_name":new_name_chet
+            }
+
+        except HTTPException:
+            raise  # Перебрасываем уже обработанные ошибки
         except Exception as e:
             await session.rollback()
+            print(f"Ошибка при переименовании счета: {str(e)}")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail=f"Ошибка при обновлении: {str(e)}"
+                detail=f"Внутренняя ошибка сервера: {str(e)}"
             )
-
 
 async def info():
     async with session_database() as session:
