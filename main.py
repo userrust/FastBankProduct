@@ -110,24 +110,6 @@ async def upload_photo(photo: UploadFile = File(...), user_id: str = Form(...)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Ошибка. Попробуйте поже")
 
 
-from pydantic import BaseModel
-
-
-class H(BaseModel):
-    text: str
-
-
-from test_database import create_text
-
-
-@app.post("/test_info")
-async def f(d: H):
-    """Ваш эндпоинт с PostgreSQL"""
-    await init_db()  # Инициализация БД (если нужно)
-    text = await create_text(d.text)
-    return {"status":"OK", "id":text.id}
-
-
 @app.get("/home")
 async def home():
     return FileResponse("akaunt.html")
