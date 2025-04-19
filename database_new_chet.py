@@ -93,16 +93,22 @@ async def rename_name_chet(user_id: int, past_name_chet: str, new_name_chet: str
         result_search_user_id = search_user_id.scalar()
 
         if result_search_user_id.chet_one == past_name_chet:
+            print("1 Chet")
             result_search_user_id.chet_one = new_name_chet
+            session.add(result_search_user_id)
+            await session.commit()
 
         elif result_search_user_id.chet_two == past_name_chet:
+            print("2 Chet")
             result_search_user_id.chet_two = new_name_chet
+            session.add(result_search_user_id)
+            await session.commit()
 
         elif result_search_user_id.chet_three == past_name_chet:
+            print("3 Chet")
             result_search_user_id.chet_three = new_name_chet
-
-        session.add(result_search_user_id)
-        await session.commit()
+            session.add(result_search_user_id)
+            await session.commit()
 
 
 async def delete_chet_user(user_id: int, name_chet: str):
