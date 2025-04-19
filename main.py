@@ -13,7 +13,8 @@ from auth.auth import auth_router
 from chat.chat import chat
 from transl_phone.translations_phone import app_phone
 from translations_card.translations_card import translations_card
-from FastBankProduct.new_chet import apps
+#from FastBankProduct.new_chet import apps
+from new_chet import apps
 
 # Папка для загрузки изображений (создайте её вручную)
 UPLOAD_DIR = "uploads"
