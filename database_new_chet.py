@@ -41,9 +41,21 @@ class Users(Base):
 
 
 async def init_db():
-    async with engine.begin() as session:
-        await session.run_sync(Base.metadata.create_all)
+    try:
+        # Вариант 1: Использование run_sync с явным соединением
+        async with engine.connect() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+            await conn.commit()  # Явное подтверждение изменений
 
+        # Вариант 2: Альтернативный способ через begin
+        # async with engine.begin() as conn:
+        #     await conn.run_sync(Base.metadata.create_all)
+
+        print("Таблицы успешно созданы")
+        return True
+    except Exception as e:
+        print(f"Ошибка при создании таблиц: {e}")
+        return False
 
 async def examination_chet(user_id: str, name_chet: str):
     async with session_database() as session:
